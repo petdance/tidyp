@@ -5,3 +5,8 @@ If you're using GCC and GNU make, here's how to build:
 
     $ cd build/gmake
     $ make
+
+To run the test suite:
+
+    $ cd test
+    $ ./testall.sh
