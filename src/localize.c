@@ -32,9 +32,9 @@
 
 #include "version.h"
 
-ctmbstr TY_(ReleaseDate)(void)
+ctmbstr TY_(Version)(void)
 {
-  return TY_(release_date);
+  return TY_(version);
 }
 
 static struct _msgfmt

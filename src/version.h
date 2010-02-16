@@ -11,4 +11,4 @@
 
 */
 
-static const char TY_(release_date)[] = "25 March 2009";
+static const char TY_(version)[] = "0.90";

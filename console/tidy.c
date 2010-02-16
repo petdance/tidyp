@@ -407,7 +407,7 @@ static void print_xml_help_option( void )
 static void xml_help( void )
 {
     printf( "<?xml version=\"1.0\"?>\n"
-            "<cmdline version=\"%s\">\n", tidyReleaseDate());
+            "<cmdline version=\"%s\">\n", tidyVersion());
     print_xml_help_option();
     printf( "</cmdline>\n" );
 }
@@ -420,10 +420,10 @@ static void help( ctmbstr prog )
     printf( "\n");
 
 #ifdef PLATFORM_NAME
-    printf( "Options for HTML Tidy for %s released on %s:\n",
-             PLATFORM_NAME, tidyReleaseDate() );
+    printf( "Options for HTML Tidy for %s v%s:\n",
+             PLATFORM_NAME, tidyVersion() );
 #else
-    printf( "Options for HTML Tidy released on %s:\n", tidyReleaseDate() );
+    printf( "Options for HTML Tidy v%s:\n", tidyVersion() );
 #endif
     printf( "\n");
 
@@ -742,7 +742,7 @@ void printXMLOption( TidyDoc tdoc, TidyOption topt, OptionDesc *d )
 static void XMLoptionhelp( TidyDoc tdoc )
 {
     printf( "<?xml version=\"1.0\"?>\n"
-            "<config version=\"%s\">\n", tidyReleaseDate());
+            "<config version=\"%s\">\n", tidyVersion());
     ForEachOption( tdoc, printXMLOption );
     printf( "</config>\n" );
 }
@@ -903,10 +903,10 @@ static void optionvalues( TidyDoc tdoc )
 static void version( void )
 {
 #ifdef PLATFORM_NAME
-    printf( "HTML Tidy for %s released on %s\n",
-             PLATFORM_NAME, tidyReleaseDate() );
+    printf( "HTML Tidy for %s v%s\n",
+             PLATFORM_NAME, tidyVersion() );
 #else
-    printf( "HTML Tidy released on %s\n", tidyReleaseDate() );
+    printf( "HTML Tidy v%s\n", tidyVersion() );
 #endif
 }
 

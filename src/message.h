@@ -30,7 +30,7 @@
 ** Keeps track of ShowWarnings, ShowErrors, etc.
 */
 
-ctmbstr TY_(ReleaseDate)(void);
+ctmbstr TY_(Version)(void);
 
 /* void TY_(ShowVersion)( TidyDocImpl* doc ); */
 void TY_(ReportUnknownOption)( TidyDocImpl* doc, ctmbstr option );

@@ -330,8 +330,8 @@ TIDY_EXPORT void TIDY_CALL        tidySetAppData( TidyDoc tdoc, void* appData );
 /** Get application data set previously */
 TIDY_EXPORT void* TIDY_CALL       tidyGetAppData( TidyDoc tdoc );
 
-/** Get release date (version) for current library */
-TIDY_EXPORT ctmbstr TIDY_CALL     tidyReleaseDate(void);
+/** Get version for current library */
+TIDY_EXPORT ctmbstr TIDY_CALL     tidyVersion(void);
 
 /* Diagnostics and Repair
 */

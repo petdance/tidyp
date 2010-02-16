@@ -203,9 +203,9 @@ void* TIDY_CALL       tidyGetAppData( TidyDoc tdoc )
   return NULL;
 }
 
-ctmbstr TIDY_CALL     tidyReleaseDate(void)
+ctmbstr TIDY_CALL     tidyVersion(void)
 {
-    return TY_(ReleaseDate)();
+    return TY_(Version)();
 }
 
 
