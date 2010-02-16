@@ -8,3 +8,5 @@ lib/
 build/*/obj
 htmldoc/*.xml
 htmldoc/*.1
+test/testall.log
+*/tmp
