@@ -1,0 +1,10 @@
+*~
+Makefile
+Makefile.old
+
+# Build directories
+bin/
+lib/
+build/*/obj
+htmldoc/*.xml
+htmldoc/*.1
