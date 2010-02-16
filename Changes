@@ -2,6 +2,9 @@ Changelog for libtidyp
 
 0.92
 ====================================
+Removed RPM and MSVC support.  If anyone wants, they can ask for it
+and I'll add it back.  For now, I have no reason to think that they
+actually work.
 
 
 0.90    Tue Feb 16 13:25:42 CST 2010
