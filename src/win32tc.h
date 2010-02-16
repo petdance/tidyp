@@ -5,7 +5,7 @@
 /* win32tc.h -- Interface to Win32 transcoding routines
 
    (c) 1998-2006 (W3C) MIT, ERCIM, Keio University
-   See tidy.h for the copyright notice.
+   See tidyp.h for the copyright notice.
 
    $Id: win32tc.h,v 1.3 2006/12/29 16:31:09 arnaud02 Exp $
 */

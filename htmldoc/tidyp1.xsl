@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!--
-    For generating the `tidy.1` man page from the
-    output of `tidy -xml-help` and `tidy -xml-config`
+    For generating the `tidyp.1` man page from the
+    output of `tidyp -xml-help` and `tidyp -xml-config`
 
     (c) 2005-2007 (W3C) MIT, ERCIM, Keio University
-    See tidy.h for the copyright notice.
+    See tidyp.h for the copyright notice.
 
     Written by Jelks Cabaniss and Arnaud Desitter
 
@@ -24,13 +24,13 @@
 
 <!--
     The default template match is to the document passed on the
-    command line to the XSLT processor, currently "tidy-help.xml".
+    command line to the XSLT processor, currently "tidyp-help.xml".
     For the detailed config options section however, the template
-    match is to the file "tidy-config.xml".  This is captured in
+    match is to the file "tidyp-config.xml".  This is captured in
     the $CONFIG variable, declared here:
 -->
 
-<xsl:variable name="CONFIG" select="document('tidy-config.xml')"/>
+<xsl:variable name="CONFIG" select="document('tidyp-config.xml')"/>
 
 
 <!-- Main Template: -->
@@ -47,8 +47,8 @@
 
 
 <xsl:template name="header-section">
-  <xsl:text/>.\" tidy man page for the Tidy Sourceforge project
-.TH tidy 1 "$Date: 2007/02/01 12:25:21 $" "HTML Tidy <xsl:value-of select="cmdline/@version" />" "User commands"
+  <xsl:text/>.\" tidyp man page for the HTML Tidy projec
+.TH tidyp 1 "$Date: 2007/02/01 12:25:21 $" "HTML Tidy <xsl:value-of select="cmdline/@version" />" "User commands"
 </xsl:template>
 
 

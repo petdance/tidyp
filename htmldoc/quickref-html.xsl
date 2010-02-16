@@ -4,7 +4,7 @@
     `tidy -xml-config`
 
     (c) 2005 (W3C) MIT, ERCIM, Keio University
-    See tidy.h for the copyright notice.
+    See tidyp.h for the copyright notice.
 
     Written by Charles Reitzel and Jelks Cabaniss
 

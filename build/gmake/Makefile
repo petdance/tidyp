@@ -55,7 +55,7 @@ devinst_prefix=/usr/local
 
 bininst = ${runinst_prefix}/bin
 libinst = ${devinst_prefix}/lib
-incinst = ${devinst_prefix}/include/tidy
+incinst = ${devinst_prefix}/include/tidyp
 maninst = ${devinst_prefix}/man
 
 # Internal variables. - No spaces allowed: libtool chokes on spaces in directory names.
@@ -123,10 +123,10 @@ XSLTPROC = xsltproc
 
 EXES = $(BINDIR)/tidyp
 
-DOCS = $(DOCDIR)/quickref.html $(DOCDIR)/tidy.1
+DOCS = $(DOCDIR)/quickref.html $(DOCDIR)/tidyp.1
 
-CONFIGXML = $(DOCDIR)/tidy-config.xml
-HELPXML = $(DOCDIR)/tidy-help.xml
+CONFIGXML = $(DOCDIR)/tidyp-config.xml
+HELPXML = $(DOCDIR)/tidyp-help.xml
 
 OBJFILES=\
         $(OBJDIR)/access$(OBJSUF)     $(OBJDIR)/attrs$(OBJSUF)      $(OBJDIR)/istack$(OBJSUF) \
@@ -136,7 +136,7 @@ OBJFILES=\
         $(OBJDIR)/attrask$(OBJSUF)    $(OBJDIR)/attrdict$(OBJSUF)   $(OBJDIR)/attrget$(OBJSUF) \
         $(OBJDIR)/buffio$(OBJSUF)     $(OBJDIR)/fileio$(OBJSUF)     $(OBJDIR)/streamio$(OBJSUF) \
         $(OBJDIR)/tagask$(OBJSUF)     $(OBJDIR)/tmbstr$(OBJSUF)     $(OBJDIR)/utf8$(OBJSUF) \
-        $(OBJDIR)/tidylib$(OBJSUF)    $(OBJDIR)/mappedio$(OBJSUF)
+        $(OBJDIR)/tidyplib$(OBJSUF)   $(OBJDIR)/mappedio$(OBJSUF)
 
 CFILES= \
         $(SRCDIR)/access.c       $(SRCDIR)/attrs.c        $(SRCDIR)/istack.c \
@@ -146,9 +146,9 @@ CFILES= \
         $(SRCDIR)/attrask.c      $(SRCDIR)/attrdict.c     $(SRCDIR)/attrget.c \
         $(SRCDIR)/buffio.c       $(SRCDIR)/fileio.c       $(SRCDIR)/streamio.c \
         $(SRCDIR)/tagask.c       $(SRCDIR)/tmbstr.c       $(SRCDIR)/utf8.c \
-        $(SRCDIR)/tidylib.c      $(SRCDIR)/mappedio.c
+        $(SRCDIR)/tidyplib.c     $(SRCDIR)/mappedio.c
 
-HFILES= $(INCDIR)/platform.h     $(INCDIR)/tidy.h         $(INCDIR)/tidyenum.h \
+HFILES= $(INCDIR)/platform.h     $(INCDIR)/tidyp.h        $(INCDIR)/tidypenum.h \
         $(INCDIR)/buffio.h
 
 LIBHFILES= \
@@ -216,8 +216,8 @@ installexes: $(EXES)
 	if [ ! -d "$(bininst)" ]; then mkdir -p "$(bininst)"; fi
 	cp -f $(EXES) "$(bininst)/"
 
-installmanpage: $(DOCDIR)/tidy.1
+installmanpage: $(DOCDIR)/tidyp.1
 	if [ ! -d "$(maninst)/man1" ]; then mkdir -p "$(maninst)/man1"; fi;
-	cp -f $(DOCDIR)/tidy.1 "$(maninst)/man1/tidy.1";
+	cp -f $(DOCDIR)/tidyp.1 "$(maninst)/man1/tidyp.1";
 
 install: installhdrs installib installexes installmanpage

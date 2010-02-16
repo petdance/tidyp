@@ -4,12 +4,12 @@
 /* attrdict.h -- extended attribute information
 
    (c) 1998-2006 (W3C) MIT, ERCIM, Keio University
-   See tidy.h for the copyright notice.
+   See tidyp.h for the copyright notice.
 
    $Id: attrdict.h,v 1.4 2006/09/12 15:14:44 arnaud02 Exp $
 */
 
-#include "tidy.h"
+#include "tidyp.h"
 
 typedef struct _AttrVersion
 {

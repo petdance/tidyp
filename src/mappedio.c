@@ -1,7 +1,7 @@
 /* Interface to mmap style I/O
 
    (c) 2006-2008 (W3C) MIT, ERCIM, Keio University
-   See tidy.h for the copyright notice.
+   See tidyp.h for the copyright notice.
 
    Originally contributed by Cory Nelson and Nuno Lopes
 

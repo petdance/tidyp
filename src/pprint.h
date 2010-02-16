@@ -4,7 +4,7 @@
 /* pprint.h -- pretty print parse tree  
   
    (c) 1998-2007 (W3C) MIT, ERCIM, Keio University
-   See tidy.h for the copyright notice.
+   See tidyp.h for the copyright notice.
   
    CVS Info:
      $Author: arnaud02 $ 

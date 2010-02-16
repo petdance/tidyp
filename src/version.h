@@ -1,7 +1,7 @@
 /* version information
 
   (c) 2007-2009 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   CVS Info :
 

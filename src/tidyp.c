@@ -8,7 +8,7 @@
 
 */
 
-#include "tidy.h"
+#include "tidyp.h"
 
 static FILE* errout = NULL;  /* set to stderr */
 /* static FILE* txtout = NULL; */  /* set to stdout */

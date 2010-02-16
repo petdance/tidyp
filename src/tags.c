@@ -1,7 +1,7 @@
 /* tags.c -- recognize HTML tags
 
   (c) 1998-2008 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   CVS Info :
 

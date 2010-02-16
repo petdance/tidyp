@@ -4,7 +4,7 @@
 /* forward.h -- Forward declarations for major Tidy structures
 
   (c) 1998-2007 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   CVS Info :
 
@@ -22,7 +22,7 @@
 */
 
 #include "platform.h"
-#include "tidy.h"
+#include "tidyp.h"
 
 /* Internal symbols are prefixed to avoid clashes with other libraries */
 #define TYDYAPPEND(str1,str2) str1##str2

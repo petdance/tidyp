@@ -1,7 +1,7 @@
 /* attrdict.c -- extended attribute information
 
    (c) 1998-2006 (W3C) MIT, ERCIM, Keio University
-   See tidy.h for the copyright notice.
+   See tidyp.h for the copyright notice.
 
    $Id: attrdict.c,v 1.7 2006/10/31 10:50:10 arnaud02 Exp $
 */

@@ -1,7 +1,7 @@
 /* attrask.c -- Interrogate attribute type
 
   (c) 1998-2006 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
   
   CVS Info:
     $Author: arnaud02 $ 
@@ -11,7 +11,7 @@
 */
 
 #include "tidy-int.h"
-#include "tidy.h"
+#include "tidyp.h"
 #include "attrs.h"
 
 Bool TIDY_CALL tidyAttrIsHREF( TidyAttr tattr )

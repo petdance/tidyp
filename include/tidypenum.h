@@ -1,7 +1,7 @@
-#ifndef __TIDYENUM_H__
-#define __TIDYENUM_H__
+#ifndef __TIDYPENUM_H__
+#define __TIDYPENUM_H__
 
-/* @file tidyenum.h -- Split public enums into separate header
+/* @file tidypenum.h -- Split public enums into separate header
 
   Simplifies enum re-use in various wrappers.  e.g. SWIG
   generated wrappers and COM IDL files.
@@ -619,4 +619,4 @@ typedef enum
 #ifdef __cplusplus
 }  /* extern "C" */
 #endif
-#endif /* __TIDYENUM_H__ */
+#endif /* __TIDYPENUM_H__ */

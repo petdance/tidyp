@@ -2,7 +2,7 @@
 
   (c) 1998-2008 (W3C) MIT, ERCIM, Keio University
   Portions Copyright University of Toronto
-  See tidy.h and access.h for the copyright notice.
+  See tidyp.h and access.h for the copyright notice.
 
   You should only need to edit this file and tidy.c
   to localize HTML tidy. *** This needs checking ***

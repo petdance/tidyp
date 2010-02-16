@@ -1,7 +1,7 @@
 /* utf8.c -- convert characters to/from UTF-8
 
   (c) 1998-2007 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   CVS Info :
 
@@ -30,7 +30,7 @@
   than a _character_ encoding, per se.
 */
 
-#include "tidy.h"
+#include "tidyp.h"
 #include "forward.h"
 #include "utf8.h"
 

@@ -4,7 +4,7 @@
 /** @file buffio.h - Treat buffer as an I/O stream.
 
   (c) 1998-2007 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   CVS Info :
 
@@ -18,7 +18,7 @@
 */
 
 #include "platform.h"
-#include "tidy.h"
+#include "tidyp.h"
 
 #ifdef __cplusplus
 extern "C" {

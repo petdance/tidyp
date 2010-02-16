@@ -4,7 +4,7 @@
 /* message.h -- general message writing routines
 
   (c) 1998-2007 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
   
   CVS Info :
 
@@ -15,7 +15,7 @@
 */
 
 #include "forward.h"
-#include "tidy.h"  /* For TidyReportLevel */
+#include "tidyp.h"  /* For TidyReportLevel */
 
 /* General message writing routines.
 ** Each message is a single warning, error, etc.

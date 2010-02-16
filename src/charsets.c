@@ -1,13 +1,13 @@
 /* charsets.c -- character set information and mappings
 
   (c) 1998-2006 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   $Id: charsets.c,v 1.6 2006/09/18 09:52:33 arnaud02 Exp $
 */
 
 #include "forward.h"
-#include "tidy.h"
+#include "tidyp.h"
 #include "tmbstr.h"
 #include "charsets.h"
 

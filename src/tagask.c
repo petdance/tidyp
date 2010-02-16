@@ -1,7 +1,7 @@
 /* tagask.c -- Interrogate node type
 
   (c) 1998-2006 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   CVS Info :
 
@@ -13,7 +13,7 @@
 
 #include "tidy-int.h"
 #include "tags.h"
-#include "tidy.h"
+#include "tidyp.h"
 
 Bool TIDY_CALL tidyNodeIsText( TidyNode tnod )
 { return TY_(nodeIsText)( tidyNodeToImpl(tnod) );

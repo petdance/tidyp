@@ -1,7 +1,7 @@
-#ifndef __TIDY_H__
-#define __TIDY_H__
+#ifndef __TIDYP_H__
+#define __TIDYP_H__
 
-/** @file tidy.h - Defines HTML Tidy API implemented by tidy library.
+/** @file tidyp.h - Defines HTML Tidy API implemented by tidyp library.
 
   Public interface is const-correct and doesn't explicitly depend
   on any globals.  Thus, thread-safety may be introduced w/out
@@ -68,7 +68,7 @@
 */
 
 #include "platform.h"
-#include "tidyenum.h"
+#include "tidypenum.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -267,7 +267,7 @@ TIDY_EXPORT Bool TIDY_CALL tidySetPanicCall( TidyPanic fpanic );
 The following is a short example program.
 
 <pre>
-#include &lt;tidy.h&gt;
+#include &lt;tidyp.h&gt;
 #include &lt;buffio.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;errno.h&gt;
@@ -1085,7 +1085,7 @@ TIDY_EXPORT TidyAttr TIDY_CALL tidyAttrGetROWSPAN( TidyNode tnod );
 #ifdef __cplusplus
 }  /* extern "C" */
 #endif
-#endif /* __TIDY_H__ */
+#endif /* __TIDYP_H__ */
 
 /*
  * local variables:

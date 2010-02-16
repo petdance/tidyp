@@ -4,7 +4,7 @@
 /* config.h -- read config file and manage config properties
   
   (c) 1998-2006 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   CVS Info :
 
@@ -28,7 +28,7 @@
 */
 
 #include "forward.h"
-#include "tidy.h"
+#include "tidyp.h"
 #include "streamio.h"
 
 struct _tidy_option;

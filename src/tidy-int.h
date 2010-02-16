@@ -4,7 +4,7 @@
 /* tidy-int.h -- internal library declarations
 
   (c) 1998-2007 (W3C) MIT, ERCIM, Keio University
-  See tidy.h for the copyright notice.
+  See tidyp.h for the copyright notice.
 
   CVS Info :
 
@@ -14,7 +14,7 @@
 
 */
 
-#include "tidy.h"
+#include "tidyp.h"
 #include "config.h"
 #include "lexer.h"
 #include "tags.h"
