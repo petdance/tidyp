@@ -1,10 +1,16 @@
-Changelog for libtidy
+Changelog for libtidyp
+
+0.92
+====================================
+
 
 0.90    Tue Feb 16 13:25:42 CST 2010
+====================================
+This version was still called "libtidy".
 
-    Added a version number, and removed the Release Date functionality.
-    A release date is not a usable version number.
+Added a version number, and removed the Release Date functionality.
+A release date is not a usable version number.
 
-    The function tidyVersion() has been added.
+The function tidyVersion() has been added.
 
-    The function tidyReleaseDate() has been removed.
+The function tidyReleaseDate() has been removed.

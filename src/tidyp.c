@@ -1,16 +1,11 @@
 /*
-  tidy.c - HTML TidyLib command line driver
+  tidyp.c - HTML TidyLib command line driver
 
   Copyright (c) 1998-2008 World Wide Web Consortium
   (Massachusetts Institute of Technology, European Research 
   Consortium for Informatics and Mathematics, Keio University).
   All Rights Reserved.
 
-  CVS Info :
-
-    $Author: arnaud02 $ 
-    $Date: 2008/03/22 20:53:08 $ 
-    $Revision: 1.50 $ 
 */
 
 #include "tidy.h"

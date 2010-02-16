@@ -1,10 +1,4 @@
-# Makefile - for tidy - HTML parser and pretty printer
-#
-#  CVS Info :
-#
-#     $Author: arnaud02 $ 
-#     $Date: 2008/03/22 21:13:38 $ 
-#     $Revision: 1.37 $ 
+# Makefile - for tidyp - HTML parser and pretty printer
 #
 #  Copyright (c) 1998-2008 World Wide Web Consortium
 #  (Massachusetts Institute of Technology, European Research 
@@ -55,21 +49,18 @@
 
 SHELL=/bin/sh
 
-PROJECT=tidy
-
 # Installation variables.  Spaces OK, only dir create and file copy operations.
 runinst_prefix=/usr/local
 devinst_prefix=/usr/local
 
 bininst = ${runinst_prefix}/bin
 libinst = ${devinst_prefix}/lib
-incinst = ${devinst_prefix}/include/$(PROJECT)
+incinst = ${devinst_prefix}/include/tidy
 maninst = ${devinst_prefix}/man
 
 # Internal variables. - No spaces allowed: libtool chokes on spaces in directory names.
 TOPDIR = ../..
 INCDIR = ${TOPDIR}/include
-APPDIR = ${TOPDIR}/console
 SRCDIR = ${TOPDIR}/src
 OBJDIR = ./obj
 LIBDIR = ${TOPDIR}/lib
@@ -125,12 +116,12 @@ LIBPREFIX = lib
 LIBSUFFIX = .a
 OBJSUF = .o
 
-LIBRARY = $(LIBDIR)/$(LIBPREFIX)$(PROJECT)$(LIBSUFFIX)
+LIBRARY = $(LIBDIR)/$(LIBPREFIX)tidyp$(LIBSUFFIX)
 AR=ar -r
 
 XSLTPROC = xsltproc
 
-EXES = $(BINDIR)/$(PROJECT) $(BINDIR)/tab2space
+EXES = $(BINDIR)/tidyp
 
 DOCS = $(DOCDIR)/quickref.html $(DOCDIR)/tidy.1
 
@@ -186,25 +177,21 @@ $(OBJDIR)/%$(OBJSUF):	$(SRCDIR)/%.c $(HFILES) $(LIBHFILES) Makefile
 	if [ ! -d $(OBJDIR) ]; then mkdir $(OBJDIR); fi
 	$(CC) $(CFLAGS) $(OTHERCFLAGS) -o $@ -c $<
 
-$(BINDIR)/$(PROJECT):	$(APPDIR)/tidy.c $(HFILES) $(LIBRARY)
+$(BINDIR)/tidyp:	$(SRCDIR)/tidyp.c $(HFILES) $(LIBRARY)
 	if [ ! -d $(BINDIR) ]; then mkdir $(BINDIR); fi
-	$(CC) $(CFLAGS) $(OTHERCFLAGS) -o $@ $(APPDIR)/tidy.c -I$(INCDIR) $(LIBRARY)
+	$(CC) $(CFLAGS) $(OTHERCFLAGS) -o $@ $(SRCDIR)/tidyp.c -I$(INCDIR) $(LIBRARY)
 
-$(BINDIR)/tab2space: $(APPDIR)/tab2space.c
-	if [ ! -d $(BINDIR) ]; then mkdir $(BINDIR); fi
-	$(CC) $(CFLAGS) $(OTHERCFLAGS) -o $@ $(APPDIR)/tab2space.c $(LIBS)
+$(HELPXML): $(BINDIR)/tidyp
+	$(BINDIR)/tidyp -xml-help > $@
 
-$(HELPXML): $(BINDIR)/$(PROJECT)
-	$(BINDIR)/$(PROJECT) -xml-help > $@
-
-$(CONFIGXML): $(BINDIR)/$(PROJECT)
-	$(BINDIR)/$(PROJECT) -xml-config > $@
+$(CONFIGXML): $(BINDIR)/tidyp
+	$(BINDIR)/tidyp -xml-config > $@
 
 $(DOCDIR)/quickref.html: $(DOCDIR)/quickref-html.xsl $(CONFIGXML)
 	$(XSLTPROC) -o $@ $(DOCDIR)/quickref-html.xsl $(CONFIGXML)
 
-$(DOCDIR)/tidy.1: $(DOCDIR)/tidy1.xsl $(HELPXML) $(CONFIGXML)
-	$(XSLTPROC) -o $@ $(DOCDIR)/tidy1.xsl $(HELPXML)
+$(DOCDIR)/tidyp.1: $(DOCDIR)/tidyp1.xsl $(HELPXML) $(CONFIGXML)
+	$(XSLTPROC) -o $@ $(DOCDIR)/tidyp1.xsl $(HELPXML)
 
 debug:
 	@$(MAKE) CFLAGS='$(CFLAGS) $(DEBUGFLAGS)' LIBS='$(LIBS) $(DEBUGLIBS)' all
