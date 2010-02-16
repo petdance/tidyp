@@ -1,0 +1,7 @@
+This bundling of libtidy is taken from the SourceForge project which
+does not make actual releases.
+
+If you're using GCC and GNU make, here's how to build:
+
+    $ cd build/gmake
+    $ make
