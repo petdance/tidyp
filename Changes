@@ -1,0 +1,9 @@
+Changelog for libtidy
+
+0.90
+    Added a version number, and removed the Release Date functionality.
+    A release date is not a usable version number.
+
+    The function tidyVersion() has been added.
+
+    The function tidyReleaseDate() has been removed.

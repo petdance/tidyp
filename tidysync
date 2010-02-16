@@ -1,0 +1,41 @@
+#!/usr/bin/perl
+
+=pod
+
+This is not meant for human consumption.  It's for Andy to sync up the
+libtidy CVS directory with the github libtidy copy of it.
+
+This expects that you have tidy checked out like so, in a parallel directory:
+
+    cvs -d:pserver:anonymous@tidy.cvs.sourceforge.net:/cvsroot/tidy login
+    cvs -z3 -d:pserver:anonymous@tidy.cvs.sourceforge.net:/cvsroot/tidy co -P modulename
+
+=cut
+
+use warnings;
+use strict;
+
+use File::Copy;
+use File::Find;
+use Perl6::Say;
+
+# This finagling assumes we're in html-tidy, and there's a ../tidy
+
+my @skipdirs = qw( CVS CVSROOT experimental test bin lib obj );
+my %skipdirs = map {($_,1)} @skipdirs;
+
+my $sourcedir = '../tidy';
+
+find( sub {
+        if ( -d ) {
+            $File::Find::prune = 1 if $skipdirs{$_};
+            return;
+        }
+
+        my $name = $File::Find::name;
+        $name =~ s{^\Q$sourcedir/}{} or die 'Bad filenaming going on';
+        my $source = "$sourcedir/$name";
+        my $target = "libtidy/$name";
+        say "cp -p $source $target";
+        #copy( $source, $target ) or die "Can't copy $source to $target: $!";
+    }, $sourcedir );
