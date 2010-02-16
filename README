@@ -1,5 +1,6 @@
-This bundling of libtidy is taken from the SourceForge project which
-does not make actual releases.
+libtidyp is a fork of libtidy on SourceForge.  The library name is
+"tidyp", and the command-line tool is also "tidyp" but all internal API
+stays the same.
 
 If you're using GCC and GNU make, here's how to build:
 

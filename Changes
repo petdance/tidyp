@@ -1,6 +1,7 @@
 Changelog for libtidy
 
-0.90
+0.90    Tue Feb 16 13:25:42 CST 2010
+
     Added a version number, and removed the Release Date functionality.
     A release date is not a usable version number.
 
