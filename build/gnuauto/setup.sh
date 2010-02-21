@@ -32,7 +32,7 @@ else
    echo "running: automake -a -c --foreign"
    automake -a -c --foreign
    echo "running: autoconf"
-   autoconf
+   autoconf -W all
    echo ""
    echo "If the above commands were successful you should now be able"
    echo "to build in the usual way:"
@@ -46,9 +46,9 @@ else
    echo "Alternatively, you should be able to build outside of the source"
    echo "tree. e.g.:"
    echo ""
-   echo "	$ mkdir ../build-tidy"
-   echo "	$ cd ../build-tidy"
-   echo "	$ ../tidy/configure --prefix=/usr"
+   echo "	$ mkdir ../build-tidyp"
+   echo "	$ cd ../build-tidyp"
+   echo "	$ ../tidyp/configure --prefix=/usr"
    echo "	$ make"
    echo "	$ make install"
    echo ""

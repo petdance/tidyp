@@ -12,18 +12,21 @@
 #   $Revision: 1.4 $ 
 #
 
-AC_INIT([include/tidyp.h])
+AC_INIT([tidyp], [0.99], [andy@petdance.com])
+
+AC_CONFIG_SRCDIR([src/tidyplib.c])
+AC_CONFIG_TESTDIR
 
 # Making releases:
-# 
+#
 #   TIDY_MICRO_VERSION += 1;
 #   TIDY_INTERFACE_AGE += 1;
 #   TIDY_BINARY_AGE += 1;
-# 
+#
 # if any functions have been added, set TIDY_INTERFACE_AGE to 0.
 # if backwards compatibility has been broken,
 # set TIDY_BINARY_AGE and TIDY_INTERFACE_AGE to 0.
-# 
+#
 TIDY_MAJOR_VERSION=0
 TIDY_MINOR_VERSION=99
 TIDY_MICRO_VERSION=0
@@ -35,7 +38,7 @@ LIBTIDY_VERSION=$TIDY_MAJOR_VERSION.$TIDY_MINOR_VERSION.$TIDY_MICRO_VERSION
 AC_SUBST(LIBTIDY_VERSION)
 
 # libtool versioning
-# 
+#
 LT_RELEASE=$TIDY_MAJOR_VERSION.$TIDY_MINOR_VERSION
 LT_CURRENT=`expr $TIDY_MICRO_VERSION - $TIDY_INTERFACE_AGE`
 LT_REVISION=$TIDY_INTERFACE_AGE
@@ -46,7 +49,7 @@ AC_SUBST(LT_CURRENT)
 AC_SUBST(LT_REVISION)
 AC_SUBST(LT_AGE)
 
-AM_INIT_AUTOMAKE(tidyp,$LIBTIDY_VERSION)
+AM_INIT_AUTOMAKE(AC_PACKAGE_TARNAME, AC_PACKAGE_VERSION, AC_PACKAGE_BUGREPORT)
 
 # Checks for programs.
 
@@ -57,7 +60,7 @@ save_cflags="$CFLAGS"
 
 AC_PROG_CC
 if test "x$GCC" = "xyes"; then
-	WARNING_CFLAGS="-Wall"
+	WARNING_CFLAGS="-Wall -Wextra"
 else
 	WARNING_CFLAGS=""
 fi
@@ -129,4 +132,6 @@ AC_OUTPUT([
 	Makefile
 	src/Makefile
 	include/Makefile
+	bin/Makefile
+	tests/Makefile
 ])

@@ -53,7 +53,7 @@
 #  acknowledgment is not required but would be appreciated.
 #
 
-SUBDIRS = src include
+SUBDIRS = src include bin tests
 
 #TODO: Pull man page from htmldoc
 #installmanpage:
