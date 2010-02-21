@@ -12,3 +12,6 @@ test/testall.log
 */tmp
 *.lo
 *.o
+*.tar.gz
+depcomp
+autom4te.cache
