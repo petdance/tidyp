@@ -53,7 +53,7 @@
 #  acknowledgment is not required but would be appreciated.
 #
 
-SUBDIRS = src console include
+SUBDIRS = src include
 
 #TODO: Pull man page from htmldoc
 #installmanpage:

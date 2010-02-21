@@ -12,7 +12,7 @@
 #   $Revision: 1.4 $ 
 #
 
-AC_INIT([include/tidy.h])
+AC_INIT([include/tidyp.h])
 
 # Making releases:
 # 
@@ -128,6 +128,5 @@ AM_WITH_DMALLOC
 AC_OUTPUT([
 	Makefile
 	src/Makefile
-	console/Makefile
 	include/Makefile
 ])
