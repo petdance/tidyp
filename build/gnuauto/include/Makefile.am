@@ -53,9 +53,8 @@
 #  acknowledgment is not required but would be appreciated.
 #
 
-#tidyincdir = $(includedir)/tidy
 tidyincdir = $(includedir)
 
 tidyinc_HEADERS = \
 	platform.h \
-	tidy.h		tidyenum.h	buffio.h
+	tidyp.h		tidypenum.h	buffio.h

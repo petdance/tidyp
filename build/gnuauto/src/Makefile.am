@@ -65,7 +65,7 @@ libtidy_la_SOURCES = \
 	clean.c		localize.c	config.c	alloc.c \
 	attrask.c	attrdict.c	attrget.c	buffio.c \
 	fileio.c	streamio.c	tagask.c	tmbstr.c \
-	utf8.c		tidylib.c	mappedio.c
+	utf8.c		tidyplib.c	mappedio.c
 
 libtidy_la_LDFLAGS = \
 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
