@@ -454,7 +454,7 @@ extern "C" {
   WINDOWS automatically set by Win16 compilers.
   _WIN32 automatically set by Win32 compilers.
 */
-#if defined(_WIN32) && !defined(__MSL__) && !defined(__BORLANDC__)
+#if defined(_WIN32) && !defined(__MSL__) && !defined(__BORLANDC__) && !defined(__GNUC__)
 
 #define futime _futime
 #define fstat _fstat
@@ -473,7 +473,7 @@ extern "C" {
   WINDOWS automatically set by Win16 compilers.
   _WIN32 automatically set by Win32 compilers.
 */
-#if defined(_WIN32) && !defined(__MSL__) && !defined(__BORLANDC__)
+#if defined(_WIN32) && !defined(__MSL__) && !defined(__BORLANDC__) && !defined(__GNUC__)
 
 #ifndef __WATCOMC__
 #define fileno _fileno
