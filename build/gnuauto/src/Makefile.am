@@ -57,9 +57,9 @@ AM_CFLAGS = @CFLAGS@ @WARNING_CFLAGS@
 
 INCLUDES = -I$(top_srcdir)/include
 
-lib_LTLIBRARIES = libtidy.la
+lib_LTLIBRARIES = libtidyp.la
 
-libtidy_la_SOURCES = \
+libtidyp_la_SOURCES = \
 	access.c	attrs.c		istack.c	parser.c \
 	tags.c		entities.c	lexer.c		pprint.c \
 	clean.c		localize.c	config.c	alloc.c \
@@ -67,7 +67,7 @@ libtidy_la_SOURCES = \
 	fileio.c	streamio.c	tagask.c	tmbstr.c \
 	utf8.c		tidyplib.c	mappedio.c
 
-libtidy_la_LDFLAGS = \
+libtidyp_la_LDFLAGS = \
 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
 	-release $(LT_RELEASE) -no-undefined -export-dynamic
 

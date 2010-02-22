@@ -6,7 +6,7 @@ AM_CFLAGS = @CFLAGS@ @WARNING_CFLAGS@
 
 INCLUDES = -I$(top_srcdir)/include
 
-bin_PROGRAMS = tidy
+bin_PROGRAMS = tidyp
 tidyp_SOURCES = ../src/tidyp.c
 
-tidy_LDADD = $(top_builddir)/src/libtidy.la
+tidyp_LDADD = $(top_builddir)/src/libtidyp.la
