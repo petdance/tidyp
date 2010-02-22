@@ -892,7 +892,7 @@ int   tidyDocParseFile( TidyDocImpl* doc, ctmbstr filnam )
 int   tidyDocParseStdin( TidyDocImpl* doc )
 {
     StreamIn* in = TY_(FileInput)( doc, stdin, cfg( doc, TidyInCharEncoding ));
-    int status = TY_(DocParseStream)( doc, in );
+    const int status = TY_(DocParseStream)( doc, in );
     TY_(freeStreamIn)(in);
     return status;
 }
@@ -912,11 +912,11 @@ int   tidyDocParseBuffer( TidyDocImpl* doc, TidyBuffer* inbuf )
 int   tidyDocParseString( TidyDocImpl* doc, ctmbstr content )
 {
     int status = -EINVAL;
-    TidyBuffer inbuf;
-    StreamIn* in = NULL;
 
     if ( content )
     {
+        TidyBuffer inbuf;
+        StreamIn* in = NULL;
         tidyBufInitWithAllocator( &inbuf, doc->allocator );
         tidyBufAttach( &inbuf, (byte*)content, TY_(tmbstrlen)(content)+1 );
         in = TY_(BufferInput)( doc, &inbuf, cfg( doc, TidyInCharEncoding ));
@@ -929,8 +929,8 @@ int   tidyDocParseString( TidyDocImpl* doc, ctmbstr content )
 
 int   tidyDocParseSource( TidyDocImpl* doc, TidyInputSource* source )
 {
-    StreamIn* in = TY_(UserInput)( doc, source, cfg( doc, TidyInCharEncoding ));
-    int status = TY_(DocParseStream)( doc, in );
+    StreamIn* const in = TY_(UserInput)( doc, source, cfg( doc, TidyInCharEncoding ));
+    const int status = TY_(DocParseStream)( doc, in );
     TY_(freeStreamIn)(in);
     return status;
 }
