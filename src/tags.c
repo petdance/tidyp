@@ -377,7 +377,7 @@ static const Dict* tagsLookup( TidyDocImpl* doc, TidyTagImpl* tags, ctmbstr s )
 
 static Dict* NewDict( TidyDocImpl* doc, ctmbstr name )
 {
-    Dict *np = (Dict*) TidyDocAlloc( doc, sizeof(Dict) );
+    Dict * const np = (Dict*) TidyDocAlloc( doc, sizeof(Dict) );
     np->id = TidyTag_UNKNOWN;
     np->name = name ? TY_(tmbstrdup)( doc->allocator, name ) : NULL;
     np->versions = VERS_UNKNOWN;
