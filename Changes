@@ -1,5 +1,11 @@
 Changelog for libtidyp
 
+NEXT
+====================================
+Removed -Wextra compiler flag for GCC.  Older GCCs don't handle this,
+and it's really only for developer use anyway.
+
+
 0.99    Mon Feb 22 00:19:30 CST 2010
 ====================================
 Distributed with a ./configure script.  No need to mess with autoconf.
