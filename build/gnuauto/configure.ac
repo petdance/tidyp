@@ -15,7 +15,6 @@
 AC_INIT([tidyp], [0.99], [andy@petdance.com])
 
 AC_CONFIG_SRCDIR([src/tidyplib.c])
-AC_CONFIG_TESTDIR
 
 # Making releases:
 #
