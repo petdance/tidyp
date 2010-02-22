@@ -1,15 +1,14 @@
 Changelog for libtidyp
 
-0.92
+0.99    Mon Feb 22 00:19:30 CST 2010
 ====================================
+Distributed with a ./configure script.  No need to mess with autoconf.
+
 Removed RPM and MSVC support.  If anyone wants, they can ask for it
 and I'll add it back.  For now, I have no reason to think that they
 actually work.
 
-
-0.90    Tue Feb 16 13:25:42 CST 2010
-====================================
-This version was still called "libtidy".
+Removed the tab2space executable.
 
 Added a version number, and removed the Release Date functionality.
 A release date is not a usable version number.
