@@ -5,15 +5,16 @@ Makefile.old
 # Build directories
 bin/
 lib/
-build/*/obj
 htmldoc/*.xml
 htmldoc/*.1
 test/testall.log
 */tmp
 *.lo
+*.la
 *.o
 *.tar.gz
-depcomp
-autom4te.cache
-*/.deps
-*/.libs
+depcomp/
+autom4te.cache/
+*/.deps/
+*/.libs/
+.deps/
