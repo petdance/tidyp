@@ -1,8 +1,6 @@
 #BEWARE: this Makefile was designed for GNU make and uses some specific syntax
 #        that can be incompatible with other make tools
 
-BASENAME =libtidy
-DLLBASE  =$(BASENAME)
 CFLAGS   =-Isrc -Iinclude -O2 -Wall -D_WIN32_WINNT=0x0500 -Wunused-parameter -I$(INCDIR) -mms-bitfields -DSUPPORT_ACCESSIBILITY_CHECKS -DSUPPORT_ASIAN_ENCODINGS -DSUPPORT_UTF16_ENCODINGS
 LIBS     =-L$(LIBDIR)
 OBJS     =src/charsets.o src/iconvtc.o src/win32tc.o src/access.o src/attrs.o src/istack.o src/parser.o src/tags.o src/entities.o src/lexer.o src/pprint.o src/clean.o src/localize.o src/config.o src/alloc.o src/attrask.o src/attrdict.o src/attrget.o src/buffio.o src/fileio.o src/streamio.o src/tagask.o src/tmbstr.o src/utf8.o src/tidyplib.o src/mappedio.o
@@ -35,7 +33,7 @@ PREFIX =./_output_
 BINDIR =$(PREFIX)/bin
 INCDIR =$(PREFIX)/include
 LIBDIR =$(PREFIX)/lib
-STATIC_LIB=$(BASENAME).a
+STATIC_LIB=libtidyp.a
 TARGETS = $(STATIC_LIB) $(SHARED_LIB) $(EXE1OBJS) $(EXE1)
 
 all: $(TARGETS)
