@@ -1,0 +1,62 @@
+#BEWARE: this Makefile was designed for GNU make and uses some specific syntax
+#        that can be incompatible with other make tools
+
+BASENAME =libtidy
+DLLBASE  =$(BASENAME)
+CFLAGS   =-Isrc -Iinclude -O2 -Wall -D_WIN32_WINNT=0x0500 -Wunused-parameter -I$(INCDIR) -mms-bitfields -DSUPPORT_ACCESSIBILITY_CHECKS -DSUPPORT_ASIAN_ENCODINGS -DSUPPORT_UTF16_ENCODINGS
+LIBS     =-L$(LIBDIR)
+OBJS     =src/charsets.o src/iconvtc.o src/win32tc.o src/access.o src/attrs.o src/istack.o src/parser.o src/tags.o src/entities.o src/lexer.o src/pprint.o src/clean.o src/localize.o src/config.o src/alloc.o src/attrask.o src/attrdict.o src/attrget.o src/buffio.o src/fileio.o src/streamio.o src/tagask.o src/tmbstr.o src/utf8.o src/tidyplib.o src/mappedio.o
+VEROBJ   =dll_version_info.o
+EXE1     =tidyp.exe
+EXE1OBJS =src/tidyp.o
+
+RANLIB  = ranlib
+CC      = gcc
+STRIP   = strip
+AR      = ar
+ARFLAGS = csr
+PERL    = perl
+
+ifeq ($(NOPERL), 1)
+  CP     = cp
+  MV     = mv
+  RM_F   = rm -f
+  RM_RF  = rm -rf
+  MKPATH = mkdir -p
+else
+  CP     = $(PERL) -MExtUtils::Command -e "cp" --
+  MV     = $(PERL) -MExtUtils::Command -e "mv" --
+  RM_F   = $(PERL) -MExtUtils::Command -e "rm_f" --
+  RM_RF  = $(PERL) -MExtUtils::Command -e "rm_rf" --
+  MKPATH = $(PERL) -MExtUtils::Command -e "mkpath" --
+endif
+
+PREFIX =./_output_
+BINDIR =$(PREFIX)/bin
+INCDIR =$(PREFIX)/include
+LIBDIR =$(PREFIX)/lib
+STATIC_LIB=$(BASENAME).a
+TARGETS = $(STATIC_LIB) $(SHARED_LIB) $(EXE1OBJS) $(EXE1)
+
+all: $(TARGETS)
+
+clean:
+	$(RM_F) $(OBJS) $(TARGETS)
+
+$(STATIC_LIB): $(OBJS)
+	$(AR) $(ARFLAGS) $@ $^
+	$(RANLIB) $@
+
+$(EXE1): $(EXE1OBJS) $(STATIC_LIB)
+	$(CC) -o $@ $^
+
+%.o : %.c ; $(CC) $(CFLAGS) -c $< -o $@
+
+install: all
+	$(MKPATH) $(BINDIR)
+	$(MKPATH) $(LIBDIR)
+	$(MKPATH) $(INCDIR)/tidyp
+	$(STRIP) -S $(EXE1)
+	$(CP) $(STATIC_LIB) "$(LIBDIR)"
+	$(CP) $(EXE1) "$(BINDIR)"
+	$(CP) include/buffio.h include/platform.h include/tidyp.h include/tidypenum.h "$(INCDIR)/tidyp"
