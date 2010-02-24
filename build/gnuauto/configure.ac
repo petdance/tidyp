@@ -59,7 +59,7 @@ save_cflags="$CFLAGS"
 
 AC_PROG_CC
 if test "x$GCC" = "xyes"; then
-	WARNING_CFLAGS="-Wall -Wextra"
+	WARNING_CFLAGS="-Wall"
 else
 	WARNING_CFLAGS=""
 fi
