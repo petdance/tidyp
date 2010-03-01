@@ -10,14 +10,14 @@ if ! test -f build/gnuauto/setup.sh; then
 
 else
 
-   for i in libtoolize glibtoolize 
-   do 
-      ( $i --version) < /dev/null > /dev/null 2>&1 && 
-      LIBTOOLIZE=$i 
-   done 
-   if test -z "$LIBTOOLIZE" ; then 
-      echo "You need libtoolize to continue" 
-      exit 1; 
+   for i in libtoolize glibtoolize
+   do
+      ( $i --version) < /dev/null > /dev/null 2>&1 &&
+      LIBTOOLIZE=$i
+   done
+   if test -z "$LIBTOOLIZE" ; then
+      echo "You need libtoolize to continue"
+      exit 1;
    fi
    top_srcdir=`pwd`
    echo ""
