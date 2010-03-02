@@ -12,7 +12,7 @@
 #   $Revision: 1.4 $ 
 #
 
-AC_INIT([tidyp], [0.99], [andy@petdance.com])
+AC_INIT([tidyp],[0.99],[andy@petdance.com])
 
 AC_CONFIG_SRCDIR([src/tidyplib.c])
 
@@ -83,7 +83,7 @@ AC_PROG_CPP
 AC_PROG_CXX
 AC_PROG_INSTALL
 AC_PROG_LN_S
-AC_PROG_LIBTOOL
+LT_INIT
 AC_PROG_MAKE_SET
 
 support_access=yes
@@ -127,10 +127,11 @@ fi
 # 
 AM_WITH_DMALLOC
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
 	include/Makefile
 	bin/Makefile
 	tests/Makefile
 ])
+AC_OUTPUT
