@@ -1,22 +1,28 @@
 *~
 Makefile
+Makefile.in
 Makefile.old
 
-# Build directories
-bin/
-lib/
-htmldoc/*.xml
-htmldoc/*.1
-test/testall.log
-*/tmp
+# Autoconf/Automake/etc
+aclocal.m4
+autom4te.cache/
+configure
+config.sub
+config.guess
+
+# Standard build cruft
 *.lo
 *.la
 *.o
 *.obj
 *.exe
 *.tar.gz
+
+# Build directories
+bin/tidyp
+tests/*.log
+*/tmp
 depcomp/
-autom4te.cache/
 */.deps/
 */.libs/
 .deps/
