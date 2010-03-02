@@ -7,8 +7,10 @@ Makefile.old
 aclocal.m4
 autom4te.cache/
 configure
-config.sub
 config.guess
+config.log
+config.status
+config.sub
 
 # Standard build cruft
 *.lo
