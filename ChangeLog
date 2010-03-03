@@ -5,6 +5,8 @@ NEXT
 Removed -Wextra compiler flag for GCC.  Older GCCs don't handle this,
 and it's really only for developer use anyway.
 
+Add a new "make check" target.
+
 
 0.99    Mon Feb 22 00:19:30 CST 2010
 ====================================
@@ -22,3 +24,6 @@ A release date is not a usable version number.
 The function tidyVersion() has been added.
 
 The function tidyReleaseDate() has been removed.
+
+# vi: ft=text:
+# It's called ChangeLog, but I don't follow the GNU format.
