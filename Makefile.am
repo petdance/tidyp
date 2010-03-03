@@ -55,6 +55,8 @@
 
 SUBDIRS = src include bin tests
 
+TESTS = test-thing.pl
+
 #TODO: Pull man page from htmldoc
 #installmanpage:
 #	if [ -f "$(TOPDIR)/htmldoc/man_page.txt" ] ; then \
