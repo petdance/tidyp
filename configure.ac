@@ -1,15 +1,15 @@
 # configure.in - HTML TidyLib GNU autoconf input file
 #
 # Copyright (c) 2003-2004 World Wide Web Consortium
-# (Massachusetts Institute of Technology, European Research 
+# (Massachusetts Institute of Technology, European Research
 # Consortium for Informatics and Mathematics, Keio University).
 # All Rights Reserved.
 #
 # CVS Info :
 #
-#   $Author: arnaud02 $ 
-#   $Date: 2008/03/24 21:08:16 $ 
-#   $Revision: 1.4 $ 
+#   $Author: arnaud02 $
+#   $Date: 2008/03/24 21:08:16 $
+#   $Revision: 1.4 $
 #
 
 AC_INIT([tidyp],[0.99],[andy@petdance.com])
@@ -54,7 +54,7 @@ AM_INIT_AUTOMAKE(AC_PACKAGE_TARNAME, AC_PACKAGE_VERSION, AC_PACKAGE_BUGREPORT)
 
 # =============================================
 # AC_PROG_CC has a habit of adding -g to CFLAGS
-# 
+#
 save_cflags="$CFLAGS"
 
 AC_PROG_CC
@@ -76,7 +76,7 @@ if test $debug_build = yes; then
 else
 	CFLAGS="-O2 $save_cflags"
 fi
-# 
+#
 # =============================================
 
 AC_PROG_CPP
@@ -124,7 +124,7 @@ fi
 
 # TODO: this defines "WITH_DMALLOC" but tidy expects "DMALLOC"
 #       need to do: #if defined(DMALLOC) || defined(WITH_DMALLOC)
-# 
+#
 AM_WITH_DMALLOC
 
 AC_CONFIG_FILES([
