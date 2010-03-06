@@ -56,10 +56,3 @@
 SUBDIRS = src include bin tests
 
 TESTS = test-thing.pl
-
-#TODO: Pull man page from htmldoc
-#installmanpage:
-#	if [ -f "$(TOPDIR)/htmldoc/man_page.txt" ] ; then \
-#    	if [ ! -d "$(maninst)/man1" ]; then mkdir -p "$(maninst)/man1"; fi; \
-#    	cp -f $(TOPDIR)/htmldoc/man_page.txt "$(maninst)/man1/tidy.1"; \
-#	fi
