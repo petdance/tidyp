@@ -860,7 +860,9 @@ int   tidyDocParseFile( TidyDocImpl* doc, ctmbstr filnam )
     FILE* fin = fopen( filnam, "rb" );
 
 #if PRESERVE_FILE_TIMES
-    struct stat sbuf = {0};
+    struct stat sbuf;
+
+    memset( &sbuf, 0, sizeof(sbuf) );
     /* get last modified time */
     TidyClearMemory( &doc->filetimes, sizeof(doc->filetimes) );
     if ( fin && cfgBool(doc,TidyKeepFileTimes) &&
