@@ -136,7 +136,7 @@ static const ctmbstr colorNames[] =
 
 /* function prototypes */
 static void InitAccessibilityChecks( TidyDocImpl* doc, int level123 );
-static void FreeAccessibilityChecks( TidyDocImpl* doc );
+static void FreeAccessibilityChecks( ARG_UNUSED( TidyDocImpl* doc ) );
 
 static Bool GetRgb( ctmbstr color, int rgb[3] );
 static Bool CompareColors( const int rgbBG[3], const int rgbFG[3] );
@@ -2915,24 +2915,8 @@ static void InitAccessibilityChecks( TidyDocImpl* doc, int level123 )
 ************************************************************/
 
 
-static void FreeAccessibilityChecks( TidyDocImpl* ARG_UNUSED(doc) )
+static void FreeAccessibilityChecks( ARG_UNUSED( TidyDocImpl* doc ) )
 {
-    /* free any memory allocated for the lists
-
-    Linked List of Links not used.  Just search document as
-    AREA tags are encountered.  Same algorithm, but no
-    data structures necessary.
-
-    current = start;
-    while (current)
-    {
-        void    *templink = (void *)current;
-
-        current = current->next;
-        TidyDocFree(doc, templink);
-    }
-    start = NULL;
-    */
 }
 
 /************************************************************
