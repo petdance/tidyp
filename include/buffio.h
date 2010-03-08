@@ -8,9 +8,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2007/01/23 11:17:45 $ 
-    $Revision: 1.9 $ 
+    $Author: arnaud02 $
+    $Date: 2007/01/23 11:17:45 $
+    $Revision: 1.9 $
 
   Requires buffer to automatically grow as bytes are added.
   Must keep track of current read and write points.
@@ -26,12 +26,12 @@ extern "C" {
 
 /** TidyBuffer - A chunk of memory */
 TIDY_STRUCT
-struct _TidyBuffer 
+struct _TidyBuffer
 {
     TidyAllocator* allocator;  /**< Memory allocator */
     byte* bp;           /**< Pointer to bytes */
     uint  size;         /**< # bytes currently in use */
-    uint  allocated;    /**< # bytes allocated */ 
+    uint  allocated;    /**< # bytes allocated */
     uint  next;         /**< Offset of current input position */
 };
 
@@ -51,7 +51,7 @@ TIDY_EXPORT void TIDY_CALL tidyBufAllocWithAllocator( TidyBuffer* buf,
                                                       TidyAllocator* allocator,
                                                       uint allocSize );
 
-/** Expand buffer to given size. 
+/** Expand buffer to given size.
 **  Chunk size is minimum growth. Pass 0 for default of 256 bytes.
 */
 TIDY_EXPORT void TIDY_CALL tidyBufCheckAlloc( TidyBuffer* buf,

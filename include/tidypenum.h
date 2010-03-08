@@ -7,33 +7,33 @@
   generated wrappers and COM IDL files.
 
   Copyright (c) 1998-2008 World Wide Web Consortium
-  (Massachusetts Institute of Technology, European Research 
+  (Massachusetts Institute of Technology, European Research
   Consortium for Informatics and Mathematics, Keio University).
   All Rights Reserved.
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2008/06/18 20:18:54 $ 
-    $Revision: 1.18 $ 
+    $Author: arnaud02 $
+    $Date: 2008/06/18 20:18:54 $
+    $Revision: 1.18 $
 
   Contributing Author(s):
 
      Dave Raggett <dsr@w3.org>
 
   The contributing author(s) would like to thank all those who
-  helped with testing, bug fixes and suggestions for improvements. 
+  helped with testing, bug fixes and suggestions for improvements.
   This wouldn't have been possible without your help.
 
   COPYRIGHT NOTICE:
- 
+
   This software and documentation is provided "as is," and
   the copyright holders and contributing author(s) make no
   representations or warranties, express or implied, including
   but not limited to, warranties of merchantability or fitness
   for any particular purpose or that the use of the software or
   documentation will not infringe any third party patents,
-  copyrights, trademarks or other rights. 
+  copyrights, trademarks or other rights.
 
   The copyright holders and contributing author(s) will not be held
   liable for any direct, indirect, special or consequential damages
@@ -49,7 +49,7 @@
      not be misrepresented as being the original source.
   3. This Copyright notice may not be removed or altered from any
      source or altered source distribution.
- 
+
   The copyright holders and contributing author(s) specifically
   permit, without fee, and encourage the use of this source code
   as a component for supporting the Hypertext Markup Language in
@@ -92,7 +92,7 @@ typedef enum
 
   TidyCharEncoding,    /**< In/out character encoding */
   TidyInCharEncoding,  /**< Input character encoding (if different) */
-  TidyOutCharEncoding, /**< Output character encoding (if different) */    
+  TidyOutCharEncoding, /**< Output character encoding (if different) */
   TidyNewline,         /**< Output line ending (default to platform) */
 
   TidyDoctypeMode,     /**< See doctype property */
@@ -100,7 +100,7 @@ typedef enum
 
   TidyDuplicateAttrs,  /**< Keep first or last duplicate attribute */
   TidyAltText,         /**< Default text for alt attribute */
-  
+
   /* obsolete */
   TidySlideStyle,      /**< Style sheet for slides: not used for anything yet */
 
@@ -189,7 +189,7 @@ typedef enum
   TidyEmptyTags,       /**< Declared empty tags */
   TidyPreTags,         /**< Declared pre tags */
 
-  TidyAccessibilityCheckLevel, /**< Accessibility check level 
+  TidyAccessibilityCheckLevel, /**< Accessibility check level
                                    0 (old style), or 1, 2, 3 */
 
   TidyVertSpace,       /**< degree to which markup is spread out vertically */
@@ -258,16 +258,15 @@ typedef enum
 
 /** Mode controlling treatment of sorting attributes
 */
-typedef enum
-{
+typedef enum {
     TidySortAttrNone,
     TidySortAttrAlpha
 } TidyAttrSortStrategy;
 
 /* I/O and Message handling interface
 **
-** By default, Tidy will define, create and use 
-** instances of input and output handlers for 
+** By default, Tidy will define, create and use
+** instances of input and output handlers for
 ** standard C buffered I/O (i.e. FILE* stdin,
 ** FILE* stdout and FILE* stderr for content
 ** input, content output and diagnostic output,
@@ -278,15 +277,14 @@ typedef enum
 
 /** Message severity level
 */
-typedef enum 
-{
-  TidyInfo,             /**< Information about markup usage */
-  TidyWarning,          /**< Warning message */
-  TidyConfig,           /**< Configuration error */
-  TidyAccess,           /**< Accessibility message */
-  TidyError,            /**< Error message - output suppressed */
-  TidyBadDocument,      /**< I/O or file system error */
-  TidyFatal             /**< Crash! */
+typedef enum {
+    TidyInfo,           /**< Information about markup usage */
+    TidyWarning,        /**< Warning message */
+    TidyConfig,         /**< Configuration error */
+    TidyAccess,         /**< Accessibility message */
+    TidyError,          /**< Error message - output suppressed */
+    TidyBadDocument,    /**< I/O or file system error */
+    TidyFatal           /**< Crash! */
 } TidyReportLevel;
 
 
@@ -295,22 +293,21 @@ typedef enum
 
 /** Node types
 */
-typedef enum 
-{
-  TidyNode_Root,        /**< Root */
-  TidyNode_DocType,     /**< DOCTYPE */
-  TidyNode_Comment,     /**< Comment */
-  TidyNode_ProcIns,     /**< Processing Instruction */
-  TidyNode_Text,        /**< Text */
-  TidyNode_Start,       /**< Start Tag */
-  TidyNode_End,         /**< End Tag */
-  TidyNode_StartEnd,    /**< Start/End (empty) Tag */
-  TidyNode_CDATA,       /**< Unparsed Text */
-  TidyNode_Section,     /**< XML Section */
-  TidyNode_Asp,         /**< ASP Source */
-  TidyNode_Jste,        /**< JSTE Source */
-  TidyNode_Php,         /**< PHP Source */
-  TidyNode_XmlDecl      /**< XML Declaration */
+typedef enum {
+    TidyNode_Root,      /**< Root */
+    TidyNode_DocType,   /**< DOCTYPE */
+    TidyNode_Comment,   /**< Comment */
+    TidyNode_ProcIns,   /**< Processing Instruction */
+    TidyNode_Text,      /**< Text */
+    TidyNode_Start,     /**< Start Tag */
+    TidyNode_End,       /**< End Tag */
+    TidyNode_StartEnd,  /**< Start/End (empty) Tag */
+    TidyNode_CDATA,     /**< Unparsed Text */
+    TidyNode_Section,   /**< XML Section */
+    TidyNode_Asp,       /**< ASP Source */
+    TidyNode_Jste,      /**< JSTE Source */
+    TidyNode_Php,       /**< PHP Source */
+    TidyNode_XmlDecl    /**< XML Declaration */
 } TidyNodeType;
 
 
