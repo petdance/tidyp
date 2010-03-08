@@ -1027,7 +1027,7 @@ static void CheckObject( TidyDocImpl* doc, Node* node )
                 {
                     word = textFromOneNode( doc, node->content->content );
                 }
-                    
+
                 if ( word != NULL && !IsWhitespace(word) )
                     HasDescription = yes;
             }
@@ -1173,11 +1173,9 @@ static void CheckIFrame( TidyDocImpl* doc, Node* node )
     if (Level1_Enabled( doc ))
     {
         /* Checks for valid 'SRC' value within the IFRAME element */
-        AttVal* av = attrGetSRC( node );
-        if ( hasValue(av) )
-        {
-            if ( !IsValidSrcExtension(av->value) )
-                TY_(ReportAccessError)( doc, node, FRAME_SRC_INVALID );
+        AttVal* const av = attrGetSRC( node );
+        if ( hasValue(av) && !IsValidSrcExtension(av->value) ) {
+            TY_(ReportAccessError)( doc, node, FRAME_SRC_INVALID );
         }
     }
 }
@@ -1216,8 +1214,8 @@ static void CheckAnchorAccess( TidyDocImpl* doc, Node* node )
                     {
                         TY_(ReportAccessError)( doc, node, MULTIMEDIA_REQUIRES_TEXT );
                     }
-            
-                    /* 
+
+                    /*
                         Checks for validity of sound file, and checks to see if 
                         the file is described within the document, or by a link
                         that is present which gives the description.
@@ -1232,7 +1230,7 @@ static void CheckAnchorAccess( TidyDocImpl* doc, Node* node )
                                 if (node->next->tag == NULL)
                                 {
                                     ctmbstr word = textFromOneNode( doc, node->next);
-                                
+
                                     /* Must contain at least one letter in the text */
                                     if (IsWhitespace (word) == no)
                                     {
