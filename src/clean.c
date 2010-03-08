@@ -1115,8 +1115,7 @@ static Bool MergeNestedElements( TidyDocImpl* doc,
          || !TagIsId(child, Id) )
         return no;
 
-    if ( state == TidyAutoState
-         && CopyAttrs(doc, node, child) == no )
+    if ( state == TidyAutoState && !CopyAttrs(doc, node, child) )
         return no;
 
     MergeStyles( doc, node, child );
@@ -1131,11 +1130,11 @@ static Bool MergeNestedElements( TidyDocImpl* doc,
 
 static Bool NestedList( TidyDocImpl* doc, Node *node, Node **pnode )
 {
-    Node *child, *list;
+    Node *list;
 
     if ( nodeIsUL(node) || nodeIsOL(node) )
     {
-        child = node->content;
+        Node *child = node->content;
 
         if (child == NULL)
             return no;
