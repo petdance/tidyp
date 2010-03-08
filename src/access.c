@@ -742,7 +742,7 @@ static void CheckImage( TidyDocImpl* doc, Node* node )
                 /* Longdesc attribute needed if width attribute is not present. */
                 if ( hasValue(av) )
                 {
-                    int width = atoi( av->value );
+                    const int width = atoi( av->value );
                     if ( width < 30 )
                         HasValidWidthBullet = yes;
 

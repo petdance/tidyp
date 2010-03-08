@@ -482,9 +482,8 @@ static void CleanBodyAttrs( TidyDocImpl* doc, Node* body )
 
 static Bool NiceBody( TidyDocImpl* doc )
 {
-    Node* node = TY_(FindBody)(doc);
-    if (node)
-    {
+    Node* const node = TY_(FindBody)(doc);
+    if (node) {
         if (TY_(AttrGetById)(node, TidyAttr_BACKGROUND) ||
             TY_(AttrGetById)(node, TidyAttr_BGCOLOR)    ||
             TY_(AttrGetById)(node, TidyAttr_TEXT)       ||
@@ -1019,8 +1018,10 @@ static Bool Center2Div( TidyDocImpl* doc, Node *node, Node **pnode)
             }
             else
             {
-                Node *prev = node->prev, *next = node->next,
-                     *parent = node->parent;
+                Node * const prev   = node->prev;
+                Node * const next   = node->next;
+                Node * const parent = node->parent;
+
                 DiscardContainer( doc, node, pnode );
 
                 node = TY_(InferredTag)(doc, TidyTag_BR);
@@ -1858,7 +1859,7 @@ void TY_(NormalizeSpaces)(Lexer *lexer, Node *node)
 /* used to hunt for hidden preformatted sections */
 static Bool NoMargins(Node *node)
 {
-    AttVal *attval = TY_(AttrGetById)(node, TidyAttr_STYLE);
+    AttVal * const attval = TY_(AttrGetById)(node, TidyAttr_STYLE);
 
     if ( !AttrHasValue(attval) )
         return no;
