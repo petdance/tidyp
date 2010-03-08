@@ -86,15 +86,6 @@ StreamOut* TY_(StdErrOutput)(void)
   return &stderrStreamOut;
 }
 
-#if 0
-StreamOut* TY_(StdOutOutput)(void)
-{
-  if ( stdoutStreamOut.sink.sinkData == 0 )
-      stdoutStreamOut.sink.sinkData = stdout;
-  return &stdoutStreamOut;
-}
-#endif
-
 void  TY_(ReleaseStreamOut)( TidyDocImpl *doc,  StreamOut* out )
 {
     if ( out && out != &stderrStreamOut && out != &stdoutStreamOut )
@@ -1009,19 +1000,6 @@ static const uint Symbol2Unicode[] =
     0x003F, 0x003F, 0x003F, 0x003F, 0x003F, 0x003F, 0x003F, 0x003F
 };
 
-#if 0
-/* Function to convert from Symbol Font chars to Unicode */
-uint DecodeSymbolFont(uint c)
-{
-    if (c > 255)
-        return c;
-
-    /* todo: add some error message */
-
-    return Symbol2Unicode[c];
-}
-#endif
-
 
 /* Facilitates user defined source by providing
 ** an entry point to marshal pointers-to-functions.
@@ -1033,17 +1011,16 @@ Bool TIDY_CALL tidyInitSource( TidyInputSource*  source,
                                TidyUngetByteFunc ugbFunc,
                                TidyEOFFunc       endFunc )
 {
-  Bool status = ( source && srcData && gbFunc && ugbFunc && endFunc );
+    const Bool status = ( source && srcData && gbFunc && ugbFunc && endFunc );
 
-  if ( status )
-  {
-    source->sourceData = srcData;
-    source->getByte    = gbFunc;
-    source->ungetByte  = ugbFunc;
-    source->eof        = endFunc;
-  }
+    if ( status ) {
+        source->sourceData = srcData;
+        source->getByte    = gbFunc;
+        source->ungetByte  = ugbFunc;
+        source->eof        = endFunc;
+    }
 
-  return status;
+    return status;
 }
 
 Bool TIDY_CALL tidyInitSink( TidyOutputSink* sink,
@@ -1097,54 +1074,6 @@ static void PutByte( uint byteValue, StreamOut* out )
 {
     tidyPutByte( &out->sink, byteValue );
 }
-
-#if 0
-static void UngetRawBytesToStream( StreamIn *in, byte* buf, int *count )
-{
-    int i;
-
-    for (i = 0; i < *count; i++)
-    {
-        /* should never get here; testing for 0xFF, a valid char, is not a good idea */
-        if ( in && TY_(IsEOF)(in) )
-        {
-            /* fprintf(stderr,"Attempt to unget EOF in UngetRawBytesToStream\n"); */
-            *count = -i;
-            return;
-        }
-
-        in->source.ungetByte( in->source.sourceData, buf[i] );
-    }
-}
-
-/*
-   Read raw bytes from stream, return <= 0 if EOF; or if
-   "unget" is true, Unget the bytes to re-synchronize the input stream
-   Normally UTF-8 successor bytes are read using this routine.
-*/
-static void ReadRawBytesFromStream( StreamIn *in, byte* buf, int *count )
-{
-    int ix;
-    for ( ix=0; ix < *count; ++ix )
-    {
-        if ( in->rawPushed )
-        {
-            buf[ix] = in->rawBytebuf[ --in->rawBufpos ];
-            if ( in->rawBufpos == 0 )
-                in->rawPushed = no;
-        }
-        else
-        {
-            if ( in->source.eof(in->source.sourceData) )
-            {
-                *count = -i;
-                break;
-            }
-            buf[ix] = in->source.getByte( in->source.sourceData );
-        }
-    }
-}
-#endif /* 0 */
 
 /* read char from stream */
 static uint ReadCharFromStream( StreamIn* in )

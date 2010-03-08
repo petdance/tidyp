@@ -2183,50 +2183,6 @@ void TY_(BumpObject)( TidyDocImpl* doc, Node *html )
     }
 }
 
-/* This is disabled due to http://tidy.sf.net/bug/681116 */
-#if 0
-void FixBrakes( TidyDocImpl* pDoc, Node *pParent )
-{
-    Node *pNode;
-    Bool bBRDeleted = no;
-
-    if (NULL == pParent)
-        return;
-
-    /*  First, check the status of All My Children  */
-    pNode = pParent->content;
-    while (NULL != pNode )
-    {
-        /* The node may get trimmed, so save the next pointer, if any */
-        Node *pNext = pNode->next;
-        FixBrakes( pDoc, pNode );
-        pNode = pNext;
-    }
-
-
-    /*  As long as my last child is a <br />, move it to my last peer  */
-    if ( nodeCMIsBlock( pParent ))
-    {
-        for ( pNode = pParent->last;
-              NULL != pNode && nodeIsBR( pNode );
-              pNode = pParent->last )
-        {
-            if ( NULL == pNode->attributes && no == bBRDeleted )
-            {
-                TY_(DiscardElement)( pDoc, pNode );
-                bBRDeleted = yes;
-            }
-            else
-            {
-                TY_(RemoveNode)( pNode );
-                TY_(InsertNodeAfterElement)( pParent, pNode );
-            }
-        }
-        TY_(TrimEmptyElement)( pDoc, pParent );
-    }
-}
-#endif
-
 void TY_(VerifyHTTPEquiv)(TidyDocImpl* doc, Node *head)
 {
     Node *pNode;

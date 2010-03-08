@@ -267,11 +267,6 @@ Node *TY_(InsertedToken)( TidyDocImpl* doc )
     node->end = lexer->txtend; /* was : lexer->txtstart; */
     istack = lexer->insert;
 
-#if 0 && defined(_DEBUG)
-    if ( lexer->istacksize == 0 )
-        fprintf( stderr, "0-size istack!\n" );
-#endif
-
     node->element = TY_(tmbstrdup)(doc->allocator, istack->element);
     node->tag = istack->tag;
     node->attributes = TY_(DupAttrs)( doc, istack->attributes );

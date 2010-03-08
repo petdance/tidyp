@@ -329,20 +329,7 @@ struct _Node
   FreeLexer() to free it.
 */
 
-struct _Lexer
-{
-#if 0  /* Move to TidyDocImpl */
-    StreamIn* in;           /* document content input */
-    StreamOut* errout;      /* error output stream */
-
-    uint badAccess;         /* for accessibility errors */
-    uint badLayout;         /* for bad style errors */
-    uint badChars;          /* for bad character encodings */
-    uint badForm;           /* for mismatched/mispositioned form tags */
-    uint warnings;          /* count of warnings in this document */
-    uint errors;            /* count of errors */
-#endif
-
+struct _Lexer {
     uint lines;             /* lines seen */
     uint columns;           /* at start of current token */
     Bool waswhite;          /* used to collapse contiguous white space */
@@ -391,10 +378,6 @@ struct _Lexer
     TagStyle *styles;          /* used for cleaning up presentation markup */
 
     TidyAllocator* allocator; /* allocator */
-
-#if 0
-    TidyDocImpl* doc;       /* Pointer back to doc for error reporting */
-#endif
 };
 
 

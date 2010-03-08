@@ -645,50 +645,14 @@ Bool TIDY_CALL tidyOptCopyConfig( TidyDoc to, TidyDoc from )
 */
 Bool TIDY_CALL        tidySetReportFilter( TidyDoc tdoc, TidyReportFilter filt )
 {
-  TidyDocImpl* impl = tidyDocToImpl( tdoc );
-  if ( impl )
-  {
-    impl->mssgFilt = filt;
-    return yes;
-  }
-  return no;
+    TidyDocImpl* impl = tidyDocToImpl( tdoc );
+    if ( impl )
+    {
+        impl->mssgFilt = filt;
+        return yes;
+    }
+    return no;
 }
-
-#if 0   /* Not yet */
-int         tidySetContentOutputSink( TidyDoc tdoc, TidyOutputSink* outp )
-{
-  TidyDocImpl* impl = tidyDocToImpl( tdoc );
-  if ( impl )
-  {
-    impl->docOut = outp;
-    return 0;
-  }
-  return -EINVAL;
-}
-int         tidySetDiagnosticOutputSink( TidyDoc tdoc, TidyOutputSink* outp )
-{
-  TidyDocImpl* impl = tidyDocToImpl( tdoc );
-  if ( impl )
-  {
-    impl->msgOut = outp;
-    return 0;
-  }
-  return -EINVAL;
-}
-
-
-/* Library helpers
-*/
-cmbstr       tidyLookupMessage( TidyDoc tdoc, int errorNo )
-{
-  TidyDocImpl* impl = tidyDocToImpl( tdoc );
-  cmbstr mssg = NULL;
-  if ( impl )
-    mssg = tidyMessage_Lookup( impl->messages, errorNo );
-  return mssg;
-}
-#endif
-
 
 FILE* TIDY_CALL   tidySetErrorFile( TidyDoc tdoc, ctmbstr errfilnam )
 {
@@ -1282,9 +1246,6 @@ int         tidyDocCleanAndRepair( TidyDocImpl* doc )
     /*!  Do we want to do this for all block-level elements?  */
 
     /* This is disabled due to http://tidy.sf.net/bug/681116 */
-#if 0
-    FixBrakes( doc, TY_(FindBody)( doc ));
-#endif
 
     /*  Reconcile http-equiv meta element with output encoding  */
     if (cfg( doc, TidyOutCharEncoding) != RAW

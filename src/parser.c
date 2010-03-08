@@ -403,41 +403,6 @@ static void TrimTrailingSpace( TidyDocImpl* doc, Node *element, Node *last )
     }
 }
 
-#if 0
-static Node *EscapeTag(Lexer *lexer, Node *element)
-{
-    Node *node = NewNode(lexer->allocator, lexer);
-
-    node->start = lexer->lexsize;
-    AddByte(lexer, '<');
-
-    if (element->type == EndTag)
-        AddByte(lexer, '/');
-
-    if (element->element)
-    {
-        char *p;
-        for (p = element->element; *p != '\0'; ++p)
-            AddByte(lexer, *p);
-    }
-    else if (element->type == DocTypeTag)
-    {
-        uint i;
-        AddStringLiteral( lexer, "!DOCTYPE " );
-        for (i = element->start; i < element->end; ++i)
-            AddByte(lexer, lexer->lexbuf[i]);
-    }
-
-    if (element->type == StartEndTag)
-        AddByte(lexer, '/');
-
-    AddByte(lexer, '>');
-    node->end = lexer->lexsize;
-
-    return node;
-}
-#endif /* 0 */
-
 /* Only true for text nodes. */
 Bool TY_(IsBlank)(Lexer *lexer, Node *node)
 {
@@ -1929,10 +1894,6 @@ void TY_(ParseDefList)(TidyDocImpl* doc, Node *list, GetTokenMode mode)
             {
                 TY_(InsertNodeBeforeElement)(list, node);
 
-/* #540296 tidy dumps with empty definition list */
-#if 0
-                TY_(DiscardElement)(list);
-#endif
             }
 
             /* #426885 - fix by Glenn Carroll 19 Apr 00, and
@@ -3369,15 +3330,6 @@ void TY_(ParseBody)(TidyDocImpl* doc, Node *body, GetTokenMode mode)
         /* deal with comments etc. */
         if (InsertMisc(body, node))
             continue;
-
-        /* #538536 Extra endtags not detected */
-#if 0
-        if ( lexer->seenEndBody == 1 && !iswhitenode )
-        {
-            ++lexer->seenEndBody;
-            TY_(ReportError)(doc, body, node, CONTENT_AFTER_BODY);
-        }
-#endif
 
         /* mixed content model permits text */
         if (TY_(nodeIsText)(node))

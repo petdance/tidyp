@@ -128,13 +128,6 @@ Bool TY_(nodeIsElement)( Node* node );
 
 Bool TY_(nodeHasText)( TidyDocImpl* doc, Node* node );
 
-#if 0
-/* Compare & result to operand.  If equal, then all bits
-** requested are set.
-*/
-Bool nodeMatchCM( Node* node, uint contentModel );
-#endif
-
 /* True if any of the bits requested are set.
 */
 Bool TY_(nodeHasCM)( Node* node, uint contentModel );

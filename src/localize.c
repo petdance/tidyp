@@ -1103,22 +1103,6 @@ void tidy_out( TidyDocImpl* doc, ctmbstr msg, ... )
     }
 }
 
-#if 0
-void ShowVersion( TidyDocImpl* doc )
-{
-    ctmbstr platform = "", helper = "";
-
-#ifdef PLATFORM_NAME
-    platform = PLATFORM_NAME;
-    helper = " for ";
-#endif
-
-    tidy_out( doc, "\nHTML Tidy%s%s (release date: %s; built on %s, at %s)\n"
-                   "See http://tidy.sourceforge.net/ for details.\n",
-              helper, platform, TY_(release_date), __DATE__, __TIME__ );
-}
-#endif
-
 void TY_(FileError)( TidyDocImpl* doc, ctmbstr file, TidyReportLevel level )
 {
     message( doc, level, "Can't open \"%s\"\n", file );
@@ -1588,16 +1572,6 @@ void TY_(ErrorSummary)( TidyDocImpl* doc )
 
     if (doc->badChars)
     {
-#if 0
-        if ( doc->badChars & WINDOWS_CHARS )
-        {
-            tidy_out(doc, "Characters codes for the Microsoft Windows fonts in the range\n");
-            tidy_out(doc, "128 - 159 may not be recognized on other platforms. You are\n");
-            tidy_out(doc, "instead recommended to use named entities, e.g. &trade; rather\n");
-            tidy_out(doc, "than Windows character code 153 (0x2122 in Unicode). Note that\n");
-            tidy_out(doc, "as of February 1998 few browsers support the new entities.\n\n");
-        }
-#endif
         if (doc->badChars & BC_VENDOR_SPECIFIC_CHARS)
         {
 
@@ -1759,20 +1733,6 @@ void TY_(ErrorSummary)( TidyDocImpl* doc )
     }
 }
 
-#if 0
-void TY_(UnknownOption)( TidyDocImpl* doc, char c )
-{
-    message( doc, TidyConfig,
-             "unrecognized option -%c use -help to list options\n", c );
-}
-
-void TY_(UnknownFile)( TidyDocImpl* doc, ctmbstr program, ctmbstr file )
-{
-    message( doc, TidyConfig,
-             "%s: can't open file \"%s\"\n", program, file );
-}
-#endif
-
 void TY_(NeedsAuthorIntervention)( TidyDocImpl* doc )
 {
     tidy_out(doc, "This document has errors that must be fixed before\n");
@@ -1798,32 +1758,6 @@ void TY_(AccessibilityHelloMessage)( TidyDocImpl* doc )
 }
 
 #endif /* SUPPORT_ACCESSIBILITY_CHECKS */
-
-#if 0
-void TY_(HelloMessage)( TidyDocImpl* doc, ctmbstr date, ctmbstr filename )
-{
-    tmbchar buf[ 2048 ];
-    ctmbstr platform = "", helper = "";
-    ctmbstr msgfmt = "\nHTML Tidy for %s (vers %s; built on %s, at %s)\n"
-                  "Parsing \"%s\"\n";
-
-#ifdef PLATFORM_NAME
-    platform = PLATFORM_NAME;
-    helper = " for ";
-#endif
-
-    if ( TY_(tmbstrcmp)(filename, "stdin") == 0 )
-    {
-        /* Filename will be ignored at end of varargs */
-        msgfmt = "\nHTML Tidy for %s (vers %s; built on %s, at %s)\n"
-                 "Parsing console input (stdin)\n";
-    }
-
-    TY_(tmbsnprintf)(buf, sizeof(buf), msgfmt, helper, platform,
-                     date, __DATE__, __TIME__, filename);
-    tidy_out( doc, buf );
-}
-#endif
 
 void TY_(ReportMarkupVersion)( TidyDocImpl* doc )
 {

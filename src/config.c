@@ -614,15 +614,6 @@ ctmbstr TY_(_cfgGetString)( TidyDocImpl* doc, TidyOptionId optId )
 }
 #endif
 
-
-#if 0
-/* for use with Gnu Emacs */
-void SetEmacsFilename( TidyDocImpl* doc, ctmbstr filename )
-{
-    SetOptionValue( doc, TidyEmacsFile, filename );
-}
-#endif
-
 static tchar GetC( TidyConfigImpl* config )
 {
     if ( config->cfgIn )

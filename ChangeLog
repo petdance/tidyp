@@ -9,6 +9,8 @@ Add a new "make check" target.
 
 Add a "tags" build target.
 
+Removed all the commented-out code I could find.
+
 
 0.99    Mon Feb 22 00:19:30 CST 2010
 ====================================
