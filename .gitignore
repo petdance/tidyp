@@ -12,6 +12,13 @@ config.log
 config.status
 config.sub
 
+# Autoconf copy stuff
+depcomp
+install-sh
+libtool
+ltmain.sh
+missing
+
 # Standard build cruft
 *.lo
 *.la
@@ -29,3 +36,4 @@ depcomp/
 */.libs/
 .deps/
 tags
+
