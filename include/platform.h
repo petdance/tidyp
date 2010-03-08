@@ -525,16 +525,6 @@ typedef unsigned int uint;
 typedef unsigned long ulong;
 #endif
 
-/*
-With GCC 4,  __attribute__ ((visibility("default"))) can be used along compiling with tidylib
-with "-fvisibility=hidden". See http://gcc.gnu.org/wiki/Visibility and build/gmake/Makefile.
-*/
-/*
-#if defined(__GNUC__) && __GNUC__ >= 4
-#define TIDY_EXPORT __attribute__ ((visibility("default")))
-#endif
-*/
-
 #ifndef TIDY_EXPORT /* Define it away for most builds */
 #define TIDY_EXPORT
 #endif
@@ -558,70 +548,8 @@ typedef const tmbchar* ctmbstr; /* Ditto, but const */
 #define TIDY_CALL
 #endif
 
-#if defined(__GNUC__) || defined(__INTEL_COMPILER)
-# define ARG_UNUSED(x) x __attribute__((unused))
-#else
-# define ARG_UNUSED(x) x
-#endif
+#include "compiler.h"
 
-#ifdef PARROT_HAS_HEADER_SAL
-#  define NOTNULL(x)                  /*@notnull@*/ __notnull x
-    /* The pointer passed may not be NULL */
-
-#  define NULLOK(x)                   /*@null@*/ __maybenull x
-    /* The pointer passed may be NULL */
-
-#  define ARGIN(x)                    /*@in@*/ /*@notnull@*/ __in x
-#  define ARGIN_NULLOK(x)             /*@in@*/ /*@null@*/ __in_opt x
-    /* The pointer target must be completely defined before being passed */
-    /* to the function. */
-
-#  define ARGOUT(x)                   /*@out@*/ /*@notnull@*/ __out x
-#  define ARGOUT_NULLOK(x)            /*@out@*/ /*@null@*/ __out_opt x
-    /* The pointer target will be defined by the function */
-
-#  define ARGMOD(x)                   /*@in@*/ /*@notnull@*/ __inout x
-#  define ARGMOD_NULLOK(x)            /*@in@*/ /*@null@*/ __inout_opt x
-    /* The pointer target must be completely defined before being passed, */
-    /* and MAY be modified by the function. */
-
-#  define FUNC_MODIFIES(x)            /*@modifies x@*/
-    /* Never applied by a human, only by the headerizer. */
-
-#else
-
-#  define NOTNULL(x)                  /*@notnull@*/ x
-    /* The pointer passed may not be NULL */
-
-#  define NULLOK(x)                   /*@null@*/ x
-    /* The pointer passed may be NULL */
-
-#  define ARGIN(x)                    /*@in@*/ /*@notnull@*/ x
-#  define ARGIN_NULLOK(x)             /*@in@*/ /*@null@*/ x
-    /* The pointer target must be completely defined before being passed */
-    /* to the function. */
-
-#  define ARGOUT(x)                   /*@out@*/ /*@notnull@*/ x
-#  define ARGOUT_NULLOK(x)            /*@out@*/ /*@null@*/ x
-    /* The pointer target will be defined by the function */
-
-#  define ARGMOD(x)                   /*@in@*/ /*@notnull@*/ x
-#  define ARGMOD_NULLOK(x)            /*@in@*/ /*@null@*/ x
-    /* The pointer target must be completely defined before being passed, */
-    /* and MAY be modified by the function. */
-
-#  define FUNC_MODIFIES(x)            /*@modifies x@*/
-    /* Never applied by a human, only by the headerizer. */
-
-#endif
-
-#define ARGFREE(x)                          /*@only@*/ /*@out@*/ /*@null@*/ x
-    /* From the Splint manual: The parameter to free() must reference */
-    /* an unshared object.  Since the parameter is declared using "only", */
-    /* the caller may not use the referenced object after the call, and */
-    /* may not pass in a reference to a shared object.  There is nothing */
-    /* special about malloc and free --  their behavior can be described */
-    /* entirely in terms of the provided annotations. */
 /* HAS_VSNPRINTF triggers the use of "vsnprintf", which is safe related to
    buffer overflow. Therefore, we make it the default unless HAS_VSNPRINTF
    has been defined. */
@@ -639,21 +567,11 @@ typedef const tmbchar* ctmbstr; /* Ditto, but const */
   work around is to avoid bool altogether
   by introducing a new enum called Bool
 */
-/* We could use the C99 definition where supported
-typedef _Bool Bool;
-#define no (_Bool)0
-#define yes (_Bool)1
-*/
 typedef enum
 {
    no,
    yes
 } Bool;
-
-/* for NULL pointers
-#define null ((const void*)0)
-extern void* null;
-*/
 
 #if defined(DMALLOC)
 #include "dmalloc.h"
