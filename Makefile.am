@@ -70,6 +70,10 @@ SPLINT_TMP = $(TMP)/splint
 # The dashes in the names don't make any difference to Splint, but I've
 # made them match how they are in the manual.  Otherwise, you might be
 # looking for "declundef", except that it's "decl-undef" in the docs.
+
+SPLINT_FLAGS_TIDYP_SPECIFIC = \
+    -booltype Bool
+
 SPLINTFLAGS = \
     +standard \
     -hints \
@@ -144,7 +148,9 @@ SPLINTFLAGS = \
     +enum-members \
     +ignore-signs \
     +long-integral \
-    +match-any-integral
+    +match-any-integral \
+    \
+    $(SPLINT_FLAGS_TIDYP_SPECIFIC)
 
 # Other options we'd like to add back
 # +initallelements : Right now, the *.ops files don't initialize all
