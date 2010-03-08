@@ -5,12 +5,12 @@
 
   (c) 1998-2007 (W3C) MIT, ERCIM, Keio University
   See tidyp.h for the copyright notice.
-  
+
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2007/05/30 16:47:31 $ 
-    $Revision: 1.29 $ 
+    $Author: arnaud02 $
+    $Date: 2007/05/30 16:47:31 $
+    $Revision: 1.29 $
 
 */
 
@@ -180,7 +180,7 @@ void TY_(ReportFatal)(TidyDocImpl* doc, Node* element, Node* node, uint code);
 #define BA_MISSING_IMAGE_MAP       8
 #define BA_USING_FRAMES            16
 #define BA_USING_NOFRAMES          32
-#define BA_INVALID_LINK_NOFRAMES   64  /* WAI [6.5.1.4] */  
+#define BA_INVALID_LINK_NOFRAMES   64  /* WAI [6.5.1.4] */
 #define BA_WAI                     (1 << 31)
 
 /* presentation flaws */

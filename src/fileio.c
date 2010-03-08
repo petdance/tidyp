@@ -5,9 +5,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2007/05/30 16:47:31 $ 
-    $Revision: 1.17 $ 
+    $Author: arnaud02 $
+    $Date: 2007/05/30 16:47:31 $
+    $Revision: 1.17 $
 
   Default implementations of Tidy input sources
   and output sinks based on standard C FILE*.

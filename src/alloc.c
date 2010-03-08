@@ -5,9 +5,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2006/12/29 16:31:07 $ 
-    $Revision: 1.7 $ 
+    $Author: arnaud02 $
+    $Date: 2006/12/29 16:31:07 $
+    $Revision: 1.7 $
 
 */
 

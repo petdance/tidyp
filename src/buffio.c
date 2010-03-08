@@ -5,9 +5,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2007/01/23 11:17:46 $ 
-    $Revision: 1.14 $ 
+    $Author: arnaud02 $
+    $Date: 2007/01/23 11:17:46 $
+    $Revision: 1.14 $
 
   Requires buffer to automatically grow as bytes are added.
   Must keep track of current read and write points.
@@ -124,7 +124,7 @@ void TIDY_CALL tidyBufCheckAlloc( TidyBuffer* buf, uint allocSize, uint chunkSiz
 
     if ( !buf->allocator )
         setDefaultAllocator( buf );
-        
+
     if ( 0 == chunkSize )
         chunkSize = 256;
     if ( allocSize+1 > buf->allocated )

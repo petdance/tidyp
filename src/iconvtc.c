@@ -47,7 +47,7 @@ int IconvGetChar(byte firstByte, StreamIn * in, uint * bytesRead)
     source = &in->source;
 
     inbuf[inbufsize++] = (char)firstByte;
-    
+
     while(inbufsize < TC_INBUFSIZE)
     {
         char * outbufptr = (char*)outbuf;

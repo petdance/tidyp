@@ -3,16 +3,16 @@
 
 /** @file fileio.h - does standard C I/O
 
-  Implementation of a FILE* based TidyInputSource and 
+  Implementation of a FILE* based TidyInputSource and
   TidyOutputSink.
 
   (c) 1998-2007 (W3C) MIT, ERCIM, Keio University
   See tidyp.h for the copyright notice.
 
   CVS Info:
-    $Author: arnaud02 $ 
-    $Date: 2007/05/30 16:47:31 $ 
-    $Revision: 1.8 $ 
+    $Author: arnaud02 $
+    $Date: 2007/05/30 16:47:31 $
+    $Revision: 1.8 $
 */
 
 #include "buffio.h"

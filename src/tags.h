@@ -8,9 +8,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2006/12/15 10:17:55 $ 
-    $Revision: 1.20 $ 
+    $Author: arnaud02 $
+    $Date: 2006/12/15 10:17:55 $
+    $Revision: 1.20 $
 
   The HTML tags are stored as 8 bit ASCII strings.
   Use lookupw() to find a tag given a wide char string.

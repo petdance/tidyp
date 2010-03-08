@@ -8,9 +8,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2007/02/11 09:45:52 $ 
-    $Revision: 1.7 $ 
+    $Author: arnaud02 $
+    $Date: 2007/02/11 09:45:52 $
+    $Revision: 1.7 $
 
   Avoids many include file circular dependencies.
 
@@ -64,6 +64,6 @@ extern TidyAllocator TY_(g_default_allocator);
 #define TidyFree(allocator, block) ((allocator)->vtbl->free((allocator), (block)))
 #define TidyPanic(allocator, msg) ((allocator)->vtbl->panic((allocator), (msg)))
 #define TidyClearMemory(block, size) memset((block), 0, (size))
- 
+
 
 #endif /* __FORWARD_H__ */

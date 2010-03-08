@@ -8,12 +8,12 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2007/07/22 09:33:26 $ 
-    $Revision: 1.21 $ 
+    $Author: arnaud02 $
+    $Date: 2007/07/22 09:33:26 $
+    $Revision: 1.21 $
 
   Wrapper around Tidy input source and output sink
-  that calls appropriate interfaces, and applies 
+  that calls appropriate interfaces, and applies
   necessary char encoding transformations: to/from
   ISO-10646 and/or UTF-8.
 
@@ -76,8 +76,8 @@ struct _StreamIn
     uint   bufsize;
     int    tabs;
     int    lastcols[LASTPOS_SIZE];
-    unsigned short curlastpos; /* current last position in lastcols */ 
-    unsigned short firstlastpos; /* first valid last position in lastcols */ 
+    unsigned short curlastpos; /* current last position in lastcols */
+    unsigned short firstlastpos; /* first valid last position in lastcols */
     int    curcol;
     int    curline;
     int    encoding;

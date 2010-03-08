@@ -770,7 +770,7 @@ void Win32MLangPutChar(tchar c, StreamOut * out, uint * bytesWritten)
         inbuf[inbufsize++] = (WCHAR)c;
 
     hr = IMLangConvertCharset_DoConversionFromUnicode(p, inbuf, &inbufsize, outbuf, &outbufsize);
-    
+
     assert( hr == S_OK );
     assert( outbufsize > 0 );
     assert( inbufsize == 1 || inbufsize == 2 );

@@ -2,12 +2,12 @@
 
   (c) 1998-2006 (W3C) MIT, ERCIM, Keio University
   See tidyp.h for the copyright notice.
-  
+
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2006/12/29 16:31:08 $ 
-    $Revision: 1.21 $ 
+    $Author: arnaud02 $
+    $Date: 2006/12/29 16:31:08 $
+    $Revision: 1.21 $
 
 */
 
@@ -263,7 +263,7 @@ Node *TY_(InsertedToken)( TidyDocImpl* doc )
     node->type = StartTag;
     node->implicit = yes;
     node->start = lexer->txtstart;
-    /* #431734 [JTidy bug #226261 (was 126261)] - fix by Gary Peskin 20 Dec 00 */ 
+    /* #431734 [JTidy bug #226261 (was 126261)] - fix by Gary Peskin 20 Dec 00 */
     node->end = lexer->txtend; /* was : lexer->txtstart; */
     istack = lexer->insert;
 
@@ -303,7 +303,7 @@ Bool TY_(SwitchInline)( TidyDocImpl* doc, Node* element, Node* node )
          && element && element->tag
          && node && node->tag
          && TY_(IsPushed)( doc, element )
-         && TY_(IsPushed)( doc, node ) 
+         && TY_(IsPushed)( doc, node )
          && ((lexer->istacksize - lexer->istackbase) >= 2) )
     {
         /* we have a chance of succeeding ... */

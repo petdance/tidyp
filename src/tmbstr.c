@@ -5,9 +5,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2006/12/29 16:31:08 $ 
-    $Revision: 1.13 $ 
+    $Author: arnaud02 $
+    $Date: 2006/12/29 16:31:08 $
+    $Revision: 1.13 $
 
 */
 
@@ -99,7 +99,7 @@ int TY_(tmbstrcmp)( ctmbstr s1, ctmbstr s2 )
 uint TY_(tmbstrlen)( ctmbstr str )
 {
     uint len = 0;
-    if ( str ) 
+    if ( str )
     {
         while ( *str++ )
             ++len;

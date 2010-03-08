@@ -5,9 +5,9 @@
 
   CVS Info :
 
-    $Author: hoehrmann $ 
-    $Date: 2008/08/09 11:55:27 $ 
-    $Revision: 1.71 $ 
+    $Author: hoehrmann $
+    $Date: 2008/08/09 11:55:27 $
+    $Revision: 1.71 $
 
   The HTML tags are stored as 8 bit ASCII strings.
 
@@ -301,7 +301,7 @@ static void tagsRemoveFromHash( TidyDocImpl* doc, TidyTagImpl* tags, ctmbstr s )
         {
             DictHash* next = p->next;
             if ( prev )
-                prev->next = next; 
+                prev->next = next;
             else
                 tags->hashtab[h] = next;
             TidyDocFree(doc, p);
@@ -397,7 +397,7 @@ static void FreeDict( TidyDocImpl* doc, Dict *d )
 }
 
 static void declare( TidyDocImpl* doc, TidyTagImpl* tags,
-                     ctmbstr name, uint versions, uint model, 
+                     ctmbstr name, uint versions, uint model,
                      Parser *parser, CheckAttribs *chkattrs )
 {
     if ( name )
@@ -437,7 +437,7 @@ Bool TY_(FindTag)( TidyDocImpl* doc, Node *node )
         node->tag = np;
         return yes;
     }
-    
+
     return no;
 }
 
@@ -449,7 +449,7 @@ const Dict* TY_(LookupTagDef)( TidyTagId tid )
         if (np->id == tid)
             return np;
 
-    return NULL;    
+    return NULL;
 }
 
 Parser* TY_(FindParser)( TidyDocImpl* doc, Node *node )
@@ -524,7 +524,7 @@ ctmbstr        TY_(GetNextDeclaredTag)( TidyDocImpl* ARG_UNUSED(doc),
                  curr->parser == TY_(ParseBlock) )
                 name = curr->name;
             break;
-    
+
         case tagtype_pre:
             if ( (curr->model & CM_BLOCK) != 0 &&
                  curr->parser == TY_(ParsePre) )
@@ -654,7 +654,7 @@ void CheckIMG( TidyDocImpl* doc, Node *node )
             doc->badAccess |= BA_MISSING_IMAGE_ALT;
             TY_(ReportMissingAttr)( doc, node, "alt" );
         }
-  
+
         if ( cfgStr(doc, TidyAltText) )
             TY_(AddAttribute)( doc, node, "alt", cfgStr(doc, TidyAltText) );
     }
@@ -872,7 +872,7 @@ Bool TY_(nodeHasText)( TidyDocImpl* doc, Node* node )
 
 Bool TY_(nodeIsElement)( Node* node )
 {
-  return ( node && 
+  return ( node &&
            (node->type == StartTag || node->type == StartEndTag) );
 }
 
@@ -882,7 +882,7 @@ Bool TY_(nodeIsElement)( Node* node )
 */
 Bool nodeMatchCM( Node* node, uint contentModel )
 {
-  return ( node && node->tag && 
+  return ( node && node->tag &&
            (node->tag->model & contentModel) == contentModel );
 }
 #endif
@@ -891,7 +891,7 @@ Bool nodeMatchCM( Node* node, uint contentModel )
 */
 Bool TY_(nodeHasCM)( Node* node, uint contentModel )
 {
-  return ( node && node->tag && 
+  return ( node && node->tag &&
            (node->tag->model & contentModel) != 0 );
 }
 
@@ -914,8 +914,8 @@ Bool TY_(nodeIsHeader)( Node* node )
     return ( tid && (
              tid == TidyTag_H1 ||
              tid == TidyTag_H2 ||
-             tid == TidyTag_H3 ||        
-             tid == TidyTag_H4 ||        
+             tid == TidyTag_H3 ||
+             tid == TidyTag_H4 ||
              tid == TidyTag_H5 ||
              tid == TidyTag_H6 ));
 }

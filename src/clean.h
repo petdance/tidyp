@@ -7,9 +7,9 @@
   See tidyp.h for the copyright notice.
 
   CVS Info:
-    $Author: arnaud02 $ 
-    $Date: 2006/09/12 15:14:44 $ 
-    $Revision: 1.14 $ 
+    $Author: arnaud02 $
+    $Date: 2006/09/12 15:14:44 $
+    $Revision: 1.14 $
 
 */
 

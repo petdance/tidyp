@@ -8,9 +8,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2007/02/11 09:45:52 $ 
-    $Revision: 1.13 $ 
+    $Author: arnaud02 $
+    $Date: 2007/02/11 09:45:52 $
+    $Revision: 1.13 $
 
 */
 
@@ -32,7 +32,7 @@
 struct _TidyDocImpl
 {
     /* The Document Tree (and backing store buffer) */
-    Node                root;       /* This MUST remain the first declared 
+    Node                root;       /* This MUST remain the first declared
                                        variable in this structure */
     Lexer*              lexer;
 

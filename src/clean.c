@@ -6,9 +6,9 @@
 
   CVS Info :
 
-    $Author: arnaud02 $ 
-    $Date: 2008/10/14 12:18:10 $ 
-    $Revision: 1.111 $ 
+    $Author: arnaud02 $
+    $Date: 2008/10/14 12:18:10 $
+    $Revision: 1.111 $
 
   Filters from other formats such as Microsoft Word
   often make excessive use of presentation markup such
@@ -24,13 +24,13 @@
   Such rules are applied to the element's content and then
   to the element itself until none of the rules more apply.
   Having applied all the rules to an element, it will have
-  a style attribute with one or more properties. 
+  a style attribute with one or more properties.
 
   Other rules strip the element they apply to, replacing
   it by style properties on the contents, e.g.
-  
+
   <dir><li><p>...</li></dir> -> <p style="margin-left 1em">...
-      
+
   These rules are applied to an element before processing
   its content and replace the current element by the first
   element in the exposed content.
@@ -417,7 +417,7 @@ static void CleanBodyAttrs( TidyDocImpl* doc, Node* body )
     tmbstr bgcolor = NULL;
     tmbstr color   = NULL;
     AttVal* attr;
-    
+
     if (NULL != (attr = TY_(AttrGetById)(body, TidyAttr_BACKGROUND)))
     {
         bgurl = attr->value;
@@ -1240,7 +1240,7 @@ Bool FindCSSSpanEq( Node *node, ctmbstr *s, Bool deprecatedOnly )
             *s = CSS_SpanEq[i].CSSeq;
             return yes;
         }
-    return no; 
+    return no;
 }
 
 /* Necessary conditions to apply BlockStyle(). */
@@ -1385,7 +1385,7 @@ static Bool InlineElementToCSS( TidyDocImpl* doc, Node* node,
         return yes;
     }
     return no;
-} 
+}
 
 /*
   Replace font elements by span elements, deleting
@@ -1530,7 +1530,7 @@ static void DefineStyleRules( TidyDocImpl* doc, Node *node )
 void TY_(CleanDocument)( TidyDocImpl* doc )
 {
     /* placeholder.  CleanTree()/CleanNode() will not
-    ** zap root element 
+    ** zap root element
     */
     CleanTree( doc, &doc->root );
 
@@ -1699,7 +1699,7 @@ static Node* PruneSection( TidyDocImpl* doc, Node *node )
 
         if (node == NULL)
             return NULL;
-        
+
         if (node->type == SectionTag)
         {
             if (TY_(tmbstrncmp)(lexer->lexbuf + node->start, "if", 2) == 0)
@@ -2024,7 +2024,7 @@ void TY_(CleanWord2000)( TidyDocImpl* doc, Node *node)
         if ( nodeIsP(node) )
         {
             AttVal *attr, *atrStyle;
-            
+
             attr = TY_(AttrGetById)(node, TidyAttr_CLASS);
             atrStyle = TY_(AttrGetById)(node, TidyAttr_STYLE);
             /*
@@ -2108,7 +2108,7 @@ Bool TY_(IsWord2000)( TidyDocImpl* doc )
 
     if (html && TY_(GetAttrByName)(html, "xmlns:o"))
         return yes;
-    
+
     /* search for <meta name="GENERATOR" content="Microsoft ..."> */
     head = TY_(FindHEAD)( doc );
 
@@ -2206,10 +2206,10 @@ void FixBrakes( TidyDocImpl* pDoc, Node *pParent )
 
     /*  As long as my last child is a <br />, move it to my last peer  */
     if ( nodeCMIsBlock( pParent ))
-    { 
-        for ( pNode = pParent->last; 
-              NULL != pNode && nodeIsBR( pNode ); 
-              pNode = pParent->last ) 
+    {
+        for ( pNode = pParent->last;
+              NULL != pNode && nodeIsBR( pNode );
+              pNode = pParent->last )
         {
             if ( NULL == pNode->attributes && no == bBRDeleted )
             {
@@ -2402,7 +2402,7 @@ void TY_(WbrToSpace)(TidyDocImpl* doc, Node* node)
     <p title='&#x2018;'>...</p>
 
   got
-  
+
     <p title='''>...</p>
 
   Since browser support is much better nowadays and
@@ -2550,7 +2550,7 @@ void TY_(FixLanguageInformation)(TidyDocImpl* doc, Node* node, Bool wantXmlLang,
 
             if (lang && !wantLang)
                 TY_(RemoveAttribute)(doc, node, lang);
-            
+
             if (xmlLang && !wantXmlLang)
                 TY_(RemoveAttribute)(doc, node, xmlLang);
         }

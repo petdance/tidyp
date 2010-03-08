@@ -5,12 +5,12 @@
 
   CVS Info :
 
-    $Author: hoehrmann $ 
-    $Date: 2008/08/09 11:55:27 $ 
-    $Revision: 1.19 $ 
+    $Author: hoehrmann $
+    $Date: 2008/08/09 11:55:27 $
+    $Revision: 1.19 $
 
   Entity handling can be static because there are no config or
-  document-specific values.  Lookup table is 100% defined at 
+  document-specific values.  Lookup table is 100% defined at
   compile time.
 
 */
@@ -143,7 +143,7 @@ static const entity entities[] =
     { "yuml",     VERS_ALL,      255 },
 
     /*
-    ** Extended Entities defined in HTML 4: Symbols 
+    ** Extended Entities defined in HTML 4: Symbols
     */
     { "fnof",     VERS_FROM40,   402 },
     { "Alpha",    VERS_FROM40,   913 },
