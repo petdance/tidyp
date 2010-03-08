@@ -56,3 +56,110 @@
 SUBDIRS = src include bin tests
 
 TESTS = test-thing.pl
+
+
+# For checking with splint see also http://www.perlfoundation.org/parrot/index.cgi?splint
+# Splint: http://splint.org
+SPLINT = splint
+
+# Temp directory for splint.  Add +keep to splintflags if you want work files
+# kept in there after completion.
+SPLINT_TMP = $(TEMPDIR)/splint
+
+# Splint flags: http://splint.org/manual/html/appB.html
+# The dashes in the names don't make any difference to Splint, but I've
+# made them match how they are in the manual.  Otherwise, you might be
+# looking for "declundef", except that it's "decl-undef" in the docs.
+SPLINTFLAGS = \
+    +standard \
+    -hints \
+    \
+    +indentspaces 4 \
+    +locindentspaces 4 \
+    +linelen 120 \
+    -message-stream-stdout \
+    +showdeephistory \
+    -showfunc \
+    -tmpdir $(SPLINT_TMP) \
+    \
+    +posix-lib \
+    -skip-posix-headers \
+    \
+    +ansi89-limits \
+    +num-struct-fields 255 \
+    \
+    -show-summary \
+    +show-scan \
+    +time-dist \
+    \
+    +ansi-reserved \
+    +ansi-reserved-internal \
+    -iso-reserved \
+    -iso-reserved-internal \
+    -include-nest 10 \
+    +bufferoverflow \
+    +bufferoverflowhigh \
+    +read-only-strings \
+    +read-only-trans \
+    +strict-destroy \
+    +strict-use-released \
+    +use-released \
+    +macro-assign \
+    +macro-empty \
+    +macro-parens \
+    +macro-redef \
+    +macro-stmt \
+    +macro-unrecog \
+    +bool-compare \
+    +ptr-compare \
+    +real-compare \
+    +unsigned-compare \
+    -pred-bool-int \
+    -pred-bool-ptr \
+    -pred-bool-others \
+    -boolops \
+    +relax-quals \
+    -must-free \
+    -mustfreefresh \
+    -mustfreeonly \
+    +null \
+    +nullptrarith \
+    +nullret \
+    -ptr-arith \
+    +ptr-negate \
+    -zero-ptr \
+    -mem-trans \
+    +decl-undef \
+    +incon-defs \
+    +incon-defs-lib \
+    +cpp-names \
+    +format-code \
+    +format-type \
+    +controlnestdepth 15 \
+    +duplicate-case \
+    +eval-order \
+    +eval-order-uncon \
+    +char-index \
+    +char-int \
+    +enum-members \
+    +ignore-signs \
+    +long-integral \
+    +match-any-integral
+
+# Other options we'd like to add back
+# +initallelements : Right now, the *.ops files don't initialize all
+#  values of the arrays
+# +casebreak: Auto-generated ops have way too case fallthrus right now
+# +fcnuse: We have many functions that are defined but not used, but they
+#  should get hidden or ifdeffed
+# +redef, +redecl: Ops currently have tons of redefinitions
+
+# added to splint target to simplify experimentation,
+# ex: make SPLINTFLAGS_TEST='-posixstrictlib +posixlib' splint
+
+SPLINT_SOURCE = `echo src/*.c`
+SPLINT = splint
+
+splint :
+	mkdir -p $(SPLINT_TMP)
+	$(SPLINT) $(SPLINTFLAGS) $(SPLINTFLAGS_TEST) $(SPLINT_SOURCE)
