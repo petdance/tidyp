@@ -64,7 +64,7 @@ SPLINT = splint
 
 # Temp directory for splint.  Add +keep to splintflags if you want work files
 # kept in there after completion.
-SPLINT_TMP = $(TEMPDIR)/splint
+SPLINT_TMP = $(TMP)/splint
 
 # Splint flags: http://splint.org/manual/html/appB.html
 # The dashes in the names don't make any difference to Splint, but I've
@@ -155,11 +155,20 @@ SPLINTFLAGS = \
 # +redef, +redecl: Ops currently have tons of redefinitions
 
 # added to splint target to simplify experimentation,
-# ex: make SPLINTFLAGS_TEST='-posixstrictlib +posixlib' splint
+# example: make SPLINTFLAGS_TEST='-posixstrictlib +posixlib' splint
 
 SPLINT_SOURCE = `echo src/*.c`
-SPLINT = splint
 
 splint :
 	mkdir -p $(SPLINT_TMP)
 	$(SPLINT) $(SPLINTFLAGS) $(SPLINTFLAGS_TEST) $(SPLINT_SOURCE)
+
+tags :
+	rm -f tags
+	ctags \
+		--links=no --totals \
+		-R --exclude=.svn --exclude=.git \
+		--languages=c \
+		-I NOTNULL,NULLOK,ARGIN,ARGMOD,ARGOUT,ARGINOUT,ARGIN_NULLOK,ARGOUT_NULLOK,ARGMOD_NULLOK \
+		$(CUR_DIR)
+

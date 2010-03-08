@@ -28,3 +28,4 @@ depcomp/
 */.deps/
 */.libs/
 .deps/
+tags

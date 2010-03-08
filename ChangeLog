@@ -7,6 +7,8 @@ and it's really only for developer use anyway.
 
 Add a new "make check" target.
 
+Add a "tags" build target.
+
 
 0.99    Mon Feb 22 00:19:30 CST 2010
 ====================================
