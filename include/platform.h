@@ -619,6 +619,65 @@ typedef struct _##typenam const * typenam
 */
 opaque_type( TidyIterator );
 
+#ifdef PARROT_HAS_HEADER_SAL
+#  define NOTNULL(x)                  /*@notnull@*/ __notnull x
+    /* The pointer passed may not be NULL */
+
+#  define NULLOK(x)                   /*@null@*/ __maybenull x
+    /* The pointer passed may be NULL */
+
+#  define ARGIN(x)                    /*@in@*/ /*@notnull@*/ __in x
+#  define ARGIN_NULLOK(x)             /*@in@*/ /*@null@*/ __in_opt x
+    /* The pointer target must be completely defined before being passed */
+    /* to the function. */
+
+#  define ARGOUT(x)                   /*@out@*/ /*@notnull@*/ __out x
+#  define ARGOUT_NULLOK(x)            /*@out@*/ /*@null@*/ __out_opt x
+    /* The pointer target will be defined by the function */
+
+#  define ARGMOD(x)                   /*@in@*/ /*@notnull@*/ __inout x
+#  define ARGMOD_NULLOK(x)            /*@in@*/ /*@null@*/ __inout_opt x
+    /* The pointer target must be completely defined before being passed, */
+    /* and MAY be modified by the function. */
+
+#  define FUNC_MODIFIES(x)            /*@modifies x@*/
+    /* Never applied by a human, only by the headerizer. */
+
+#else
+
+#  define NOTNULL(x)                  /*@notnull@*/ x
+    /* The pointer passed may not be NULL */
+
+#  define NULLOK(x)                   /*@null@*/ x
+    /* The pointer passed may be NULL */
+
+#  define ARGIN(x)                    /*@in@*/ /*@notnull@*/ x
+#  define ARGIN_NULLOK(x)             /*@in@*/ /*@null@*/ x
+    /* The pointer target must be completely defined before being passed */
+    /* to the function. */
+
+#  define ARGOUT(x)                   /*@out@*/ /*@notnull@*/ x
+#  define ARGOUT_NULLOK(x)            /*@out@*/ /*@null@*/ x
+    /* The pointer target will be defined by the function */
+
+#  define ARGMOD(x)                   /*@in@*/ /*@notnull@*/ x
+#  define ARGMOD_NULLOK(x)            /*@in@*/ /*@null@*/ x
+    /* The pointer target must be completely defined before being passed, */
+    /* and MAY be modified by the function. */
+
+#  define FUNC_MODIFIES(x)            /*@modifies x@*/
+    /* Never applied by a human, only by the headerizer. */
+
+#endif
+
+#define ARGFREE(x)                          /*@only@*/ /*@out@*/ /*@null@*/ x
+    /* From the Splint manual: The parameter to free() must reference */
+    /* an unshared object.  Since the parameter is declared using "only", */
+    /* the caller may not use the referenced object after the call, and */
+    /* may not pass in a reference to a shared object.  There is nothing */
+    /* special about malloc and free --  their behavior can be described */
+    /* entirely in terms of the provided annotations. */
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
