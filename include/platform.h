@@ -564,61 +564,6 @@ typedef const tmbchar* ctmbstr; /* Ditto, but const */
 # define ARG_UNUSED(x) x
 #endif
 
-/* HAS_VSNPRINTF triggers the use of "vsnprintf", which is safe related to
-   buffer overflow. Therefore, we make it the default unless HAS_VSNPRINTF
-   has been defined. */
-#ifndef HAS_VSNPRINTF
-# define HAS_VSNPRINTF 1
-#endif
-
-#ifndef SUPPORT_POSIX_MAPPED_FILES
-# define SUPPORT_POSIX_MAPPED_FILES 1
-#endif
-
-/*
-  bool is a reserved word in some but
-  not all C++ compilers depending on age
-  work around is to avoid bool altogether
-  by introducing a new enum called Bool
-*/
-/* We could use the C99 definition where supported
-typedef _Bool Bool;
-#define no (_Bool)0
-#define yes (_Bool)1
-*/
-typedef enum
-{
-   no,
-   yes
-} Bool;
-
-/* for NULL pointers
-#define null ((const void*)0)
-extern void* null;
-*/
-
-#if defined(DMALLOC)
-#include "dmalloc.h"
-#endif
-
-/* Opaque data structure.
-*  Cast to implementation type struct within lib.
-*  This will reduce inter-dependencies/conflicts w/ application code.
-*/
-#if 1
-#define opaque_type( typenam )\
-struct _##typenam { int _opaque; };\
-typedef struct _##typenam const * typenam
-#else
-#define opaque_type(typenam) typedef const void* typenam
-#endif
-
-/* Opaque data structure used to pass back
-** and forth to keep current position in a
-** list or other collection.
-*/
-opaque_type( TidyIterator );
-
 #ifdef PARROT_HAS_HEADER_SAL
 #  define NOTNULL(x)                  /*@notnull@*/ __notnull x
     /* The pointer passed may not be NULL */
@@ -677,6 +622,60 @@ opaque_type( TidyIterator );
     /* may not pass in a reference to a shared object.  There is nothing */
     /* special about malloc and free --  their behavior can be described */
     /* entirely in terms of the provided annotations. */
+/* HAS_VSNPRINTF triggers the use of "vsnprintf", which is safe related to
+   buffer overflow. Therefore, we make it the default unless HAS_VSNPRINTF
+   has been defined. */
+#ifndef HAS_VSNPRINTF
+# define HAS_VSNPRINTF 1
+#endif
+
+#ifndef SUPPORT_POSIX_MAPPED_FILES
+# define SUPPORT_POSIX_MAPPED_FILES 1
+#endif
+
+/*
+  bool is a reserved word in some but
+  not all C++ compilers depending on age
+  work around is to avoid bool altogether
+  by introducing a new enum called Bool
+*/
+/* We could use the C99 definition where supported
+typedef _Bool Bool;
+#define no (_Bool)0
+#define yes (_Bool)1
+*/
+typedef enum
+{
+   no,
+   yes
+} Bool;
+
+/* for NULL pointers
+#define null ((const void*)0)
+extern void* null;
+*/
+
+#if defined(DMALLOC)
+#include "dmalloc.h"
+#endif
+
+/* Opaque data structure.
+*  Cast to implementation type struct within lib.
+*  This will reduce inter-dependencies/conflicts w/ application code.
+*/
+#if 1
+#define opaque_type( typenam )\
+struct _##typenam { int _opaque; };\
+typedef struct _##typenam const * typenam
+#else
+#define opaque_type(typenam) typedef const void* typenam
+#endif
+
+/* Opaque data structure used to pass back
+** and forth to keep current position in a
+** list or other collection.
+*/
+opaque_type( TidyIterator );
 
 #ifdef __cplusplus
 } /* extern "C" */
