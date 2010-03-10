@@ -759,9 +759,9 @@ void TY_(FreeAttrTable)( TidyDocImpl* doc )
 
 void TY_(AppendToClassAttr)( TidyDocImpl* doc, AttVal *classattr, ctmbstr classname )
 {
-    uint len = TY_(tmbstrlen)(classattr->value) +
-        TY_(tmbstrlen)(classname) + 2;
-    tmbstr s = (tmbstr) TidyDocAlloc( doc, len );
+    const size_t len = TY_(tmbstrlen)(classattr->value) + TY_(tmbstrlen)(classname) + 2;
+    const tmbstr s = (tmbstr) TidyDocAlloc( doc, len );
+
     s[0] = '\0';
     if (classattr->value)
     {
