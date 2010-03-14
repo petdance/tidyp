@@ -86,7 +86,7 @@ SPLINTFLAGS = \
 	\
 	+indentspaces 4 \
 	+locindentspaces 4 \
-	+linelen 120 \
+	+linelen 1200 \
 	-message-stream-stdout \
 	+showdeephistory \
 	-showfunc \
