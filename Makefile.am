@@ -72,85 +72,91 @@ SPLINT_TMP = $(TMP)/splint
 # looking for "declundef", except that it's "decl-undef" in the docs.
 
 SPLINT_FLAGS_TIDYP_SPECIFIC = \
-    -booltype Bool
+	-booltype Bool
 
 SPLINTFLAGS = \
-    +standard \
-    -hints \
-    \
-    +indentspaces 4 \
-    +locindentspaces 4 \
-    +linelen 120 \
-    -message-stream-stdout \
-    +showdeephistory \
-    -showfunc \
-    -tmpdir $(SPLINT_TMP) \
-    \
-    +posix-lib \
-    -skip-posix-headers \
-    \
-    +ansi89-limits \
-    +num-struct-fields 255 \
-    \
-    -show-summary \
-    +show-scan \
-    +time-dist \
-    \
-    +ansi-reserved \
-    +ansi-reserved-internal \
-    -iso-reserved \
-    -iso-reserved-internal \
-    -include-nest 10 \
-    +bufferoverflow \
-    +bufferoverflowhigh \
-    +read-only-strings \
-    +read-only-trans \
-    +strict-destroy \
-    +strict-use-released \
-    +use-released \
-    +macro-assign \
-    +macro-empty \
-    +macro-parens \
-    +macro-redef \
-    +macro-stmt \
-    +macro-unrecog \
-    +bool-compare \
-    +ptr-compare \
-    +real-compare \
-    +unsigned-compare \
-    -pred-bool-int \
-    -pred-bool-ptr \
-    -pred-bool-others \
-    -boolops \
-    +relax-quals \
-    -must-free \
-    -mustfreefresh \
-    -mustfreeonly \
-    +null \
-    +nullptrarith \
-    +nullret \
-    -ptr-arith \
-    +ptr-negate \
-    -zero-ptr \
-    -mem-trans \
-    +decl-undef \
-    +incon-defs \
-    +incon-defs-lib \
-    +cpp-names \
-    +format-code \
-    +format-type \
-    +controlnestdepth 15 \
-    +duplicate-case \
-    +eval-order \
-    +eval-order-uncon \
-    +char-index \
-    +char-int \
-    +enum-members \
-    +ignore-signs \
-    +long-integral \
-    +match-any-integral \
-    \
-    $(SPLINT_FLAGS_TIDYP_SPECIFIC)
+	-Dlinux \
+	-I. \
+	-I./src \
+	-I./include \
+	-I/usr/include \
+	\
+	+standard \
+	-hints \
+	\
+	+indentspaces 4 \
+	+locindentspaces 4 \
+	+linelen 120 \
+	-message-stream-stdout \
+	+showdeephistory \
+	-showfunc \
+	-tmpdir $(SPLINT_TMP) \
+	\
+	+posix-lib \
+	-skip-posix-headers \
+	\
+	+ansi89-limits \
+	+num-struct-fields 255 \
+	\
+	-show-summary \
+	+show-scan \
+	+time-dist \
+	\
+	+ansi-reserved \
+	+ansi-reserved-internal \
+	-iso-reserved \
+	-iso-reserved-internal \
+	-include-nest 10 \
+	+bufferoverflow \
+	+bufferoverflowhigh \
+	+read-only-strings \
+	+read-only-trans \
+	+strict-destroy \
+	+strict-use-released \
+	+use-released \
+	+macro-assign \
+	+macro-empty \
+	+macro-parens \
+	+macro-redef \
+	+macro-stmt \
+	+macro-unrecog \
+	+bool-compare \
+	+ptr-compare \
+	+real-compare \
+	+unsigned-compare \
+	-pred-bool-int \
+	-pred-bool-ptr \
+	-pred-bool-others \
+	-boolops \
+	+relax-quals \
+	-must-free \
+	-mustfreefresh \
+	-mustfreeonly \
+	+null \
+	+nullptrarith \
+	+nullret \
+	-ptr-arith \
+	+ptr-negate \
+	-zero-ptr \
+	-mem-trans \
+	+decl-undef \
+	+incon-defs \
+	+incon-defs-lib \
+	+cpp-names \
+	+format-code \
+	+format-type \
+	+controlnestdepth 15 \
+	+duplicate-case \
+	+eval-order \
+	+eval-order-uncon \
+	+char-index \
+	+char-int \
+	+enum-members \
+	+ignore-signs \
+	+long-integral \
+	+match-any-integral \
+	\
+	$(SPLINT_FLAGS_TIDYP_SPECIFIC)
 
 # Other options we'd like to add back
 # +initallelements : Right now, the *.ops files don't initialize all
