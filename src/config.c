@@ -1042,7 +1042,7 @@ void AdjustConfig( TidyDocImpl* doc )
     {
 #if SUPPORT_UTF16_ENCODINGS
         /* XML requires a BOM on output if using UTF-16 encoding */
-        ulong enc = cfg( doc, TidyOutCharEncoding );
+        const ulong enc = cfg( doc, TidyOutCharEncoding );
         if ( enc == UTF16LE || enc == UTF16BE || enc == UTF16 )
             TY_(SetOptionInt)( doc, TidyOutputBOM, yes );
 #endif
@@ -1078,7 +1078,7 @@ static Bool ParseTriState( TidyTriState theState, TidyDocImpl* doc,
                            const TidyOptionImpl* entry, ulong* flag )
 {
     TidyConfigImpl* cfg = &doc->config;
-    tchar c = SkipWhite( cfg );
+    const tchar c = SkipWhite( cfg );
 
     if (c == 't' || c == 'T' || c == 'y' || c == 'Y' || c == '1')
         *flag = yes;
@@ -1100,8 +1100,9 @@ Bool ParseNewline( TidyDocImpl* doc, const TidyOptionImpl* entry )
 {
     int nl = -1;
     tmbchar work[ 16 ] = {0};
-    tmbstr cp = work, end = work + sizeof(work);
-    TidyConfigImpl* cfg = &doc->config;
+    tmbstr cp = work;
+    const tmbstr end = work + sizeof(work);
+    TidyConfigImpl* const cfg = &doc->config;
     tchar c = SkipWhite( cfg );
 
     while ( c!=EndOfStream && cp < end && !TY_(IsWhite)(c) && c != '\r' && c != '\n' )
@@ -1128,7 +1129,7 @@ Bool ParseNewline( TidyDocImpl* doc, const TidyOptionImpl* entry )
 Bool ParseBool( TidyDocImpl* doc, const TidyOptionImpl* entry )
 {
     ulong flag = 0;
-    Bool status = ParseTriState( TidyNoState, doc, entry, &flag );
+    const Bool status = ParseTriState( TidyNoState, doc, entry, &flag );
     if ( status )
         TY_(SetOptionBool)( doc, entry->id, flag != 0 );
     return status;
@@ -1137,7 +1138,7 @@ Bool ParseBool( TidyDocImpl* doc, const TidyOptionImpl* entry )
 Bool ParseAutoBool( TidyDocImpl* doc, const TidyOptionImpl* entry )
 {
     ulong flag = 0;
-    Bool status = ParseTriState( TidyAutoState, doc, entry, &flag );
+    const Bool status = ParseTriState( TidyAutoState, doc, entry, &flag );
     if ( status )
         TY_(SetOptionInt)( doc, entry->id, flag );
     return status;
@@ -1619,7 +1620,7 @@ static int  WriteOptionPick( const TidyOptionImpl* option, uint ival, StreamOut*
 
 Bool  TY_(ConfigDiffThanSnapshot)( TidyDocImpl* doc )
 {
-  int diff = memcmp( &doc->config.value, &doc->config.snapshot,
+  const int diff = memcmp( &doc->config.value, &doc->config.snapshot,
                      N_TIDY_OPTIONS * sizeof(uint) );
   return ( diff != 0 );
 }
