@@ -1,6 +1,6 @@
 Changelog for libtidyp
 
-NEXT
+0.99.1
 ====================================
 Removed -Wextra compiler flag for GCC.  Older GCCs don't handle this,
 and it's really only for developer use anyway.

@@ -12,7 +12,7 @@
 #   $Revision: 1.4 $
 #
 
-AC_INIT([tidyp],[0.99],[andy@petdance.com])
+AC_INIT([tidyp],[0.99.1],[andy@petdance.com])
 
 AC_CONFIG_SRCDIR([src/tidyplib.c])
 
