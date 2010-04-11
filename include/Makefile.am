@@ -53,7 +53,7 @@
 #  acknowledgment is not required but would be appreciated.
 #
 
-tidyincdir = $(includedir)
+tidyincdir = $(includedir)/tidyp
 
 tidyinc_HEADERS = \
 	platform.h \
