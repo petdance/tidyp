@@ -2,12 +2,4 @@ tidyp is a fork of tidy on SourceForge at http://tidy.sf.net.  The
 library name is "tidyp", and the command-line tool is also "tidyp"
 but all internal API stays the same.
 
-If you're using GCC and GNU make, here's how to build:
-
-    $ cd build/gmake
-    $ make
-
-To run the test suite:
-
-    $ cd test
-    $ ./testall.sh
+For installation instructions, see INSTALL.
