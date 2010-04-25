@@ -2,4 +2,8 @@ tidyp is a fork of tidy on SourceForge at http://tidy.sf.net.  The
 library name is "tidyp", and the command-line tool is also "tidyp"
 but all internal API stays the same.
 
+tidyp will voth validate your HTML, and output cleaned up HTML.
+
+The tidyp homepage is at http://tidyp.com/.
+
 For installation instructions, see INSTALL.
