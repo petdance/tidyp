@@ -1,18 +1,6 @@
-# configure.in - HTML TidyLib GNU autoconf input file
-#
-# Copyright (c) 2003-2004 World Wide Web Consortium
-# (Massachusetts Institute of Technology, European Research
-# Consortium for Informatics and Mathematics, Keio University).
-# All Rights Reserved.
-#
-# CVS Info :
-#
-#   $Author: arnaud02 $
-#   $Date: 2008/03/24 21:08:16 $
-#   $Revision: 1.4 $
-#
+# configure.ac - tidyp GNU autoconf input file
 
-AC_INIT([tidyp],[0.99.1],[andy@petdance.com])
+AC_INIT([tidyp],[1.00],[andy@petdance.com])
 
 AC_CONFIG_SRCDIR([src/tidyplib.c])
 
@@ -26,8 +14,8 @@ AC_CONFIG_SRCDIR([src/tidyplib.c])
 # if backwards compatibility has been broken,
 # set TIDY_BINARY_AGE and TIDY_INTERFACE_AGE to 0.
 #
-TIDY_MAJOR_VERSION=0
-TIDY_MINOR_VERSION=99
+TIDY_MAJOR_VERSION=1
+TIDY_MINOR_VERSION=00
 TIDY_MICRO_VERSION=0
 TIDY_INTERFACE_AGE=0
 TIDY_BINARY_AGE=0

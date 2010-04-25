@@ -1356,10 +1356,10 @@ Bool TY_(AddGenerator)( TidyDocImpl* doc )
     if (head)
     {
 #ifdef PLATFORM_NAME
-        TY_(tmbsnprintf)(buf, sizeof(buf), "HTML Tidy for "PLATFORM_NAME" (v%s), see www.w3.org",
+        TY_(tmbsnprintf)(buf, sizeof(buf), "tidyp for "PLATFORM_NAME" (v%s), see www.w3.org",
                          tidyVersion());
 #else
-        TY_(tmbsnprintf)(buf, sizeof(buf), "HTML Tidy (v%s), see www.w3.org", tidyVersion());
+        TY_(tmbsnprintf)(buf, sizeof(buf), "tidyp (v%s), see www.w3.org", tidyVersion());
 #endif
 
         for ( node = head->content; node; node = node->next )
