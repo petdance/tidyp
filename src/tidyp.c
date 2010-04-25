@@ -1,5 +1,5 @@
 /*
-  tidyp.c - HTML TidyLib command line driver
+  tidyp.c - tidyp command line driver
 
   Copyright (c) 1998-2008 World Wide Web Consortium
   (Massachusetts Institute of Technology, European Research
@@ -415,10 +415,10 @@ static void help( ctmbstr prog )
     printf( "\n");
 
 #ifdef PLATFORM_NAME
-    printf( "Options for HTML Tidy for %s v%s:\n",
+    printf( "Options for tidyp for %s v%s:\n",
              PLATFORM_NAME, tidyVersion() );
 #else
-    printf( "Options for HTML Tidy v%s:\n", tidyVersion() );
+    printf( "Options for tidyp v%s:\n", tidyVersion() );
 #endif
     printf( "\n");
 
@@ -821,7 +821,7 @@ void printOption( TidyDoc ARG_UNUSED(tdoc), TidyOption topt,
 
 static void optionhelp( TidyDoc tdoc )
 {
-    printf( "\nHTML Tidy Configuration Settings\n\n" );
+    printf( "\ntidyp Configuration Settings\n\n" );
     printf( "Within a file, use the form:\n\n" );
     printf( "wrap: 72\n" );
     printf( "indent: no\n\n" );
@@ -892,22 +892,21 @@ static void optionvalues( TidyDoc tdoc )
     ForEachSortedOption( tdoc, printOptionValues );
 
     printf( "\n\nValues marked with an *asterisk are calculated \n"
-            "internally by HTML Tidy\n\n" );
+            "internally by tidyp\n\n" );
 }
 
 static void version( void )
 {
 #ifdef PLATFORM_NAME
-    printf( "HTML Tidy for %s v%s\n",
-             PLATFORM_NAME, tidyVersion() );
+    printf( "tidyp for %s v%s\n", PLATFORM_NAME, tidyVersion() );
 #else
-    printf( "HTML Tidy v%s\n", tidyVersion() );
+    printf( "tidyp v%s\n", tidyVersion() );
 #endif
 }
 
 static void unknownOption( uint c )
 {
-    fprintf( errout, "HTML Tidy: unknown option: %c\n", (char)c );
+    fprintf( errout, "tidyp: unknown option: %c\n", (char)c );
 }
 
 int main( int argc, char** argv )
