@@ -27,8 +27,8 @@ TESTEXPECTED=$2
 ACCESSLEVEL=$3
 
 TIDY=../bin/tidyp
-INFILES=./accessTest/$1.*ml
-CFGFILE=./accessTest/cfg_$1.txt
+INFILES=./accessibility/$1.*ml
+CFGFILE=./accessibility/cfg_$1.txt
 
 TIDYFILE=./tmp/out_$1.html
 MSGFILE=./tmp/msg_$1.txt
@@ -59,7 +59,7 @@ done
 # If no test specific config file, use default.
 if [ ! -f $CFGFILE ]
 then
-  CFGFILE=./accessTest/cfg_default.txt
+  CFGFILE=./accessibility/cfg_default.txt
 fi
 
 # Make sure output directory exists.

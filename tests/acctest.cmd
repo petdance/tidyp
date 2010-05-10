@@ -18,7 +18,7 @@ REM    $Revision: 1.2 $
 @REM set executable to be used
 @set TIDY=..\build\msvc\Release\tidy.exe
 @REM set INPUT folder
-@set TIDYINPUT=accessTest
+@set TIDYINPUT=accessibility
 @REM set OUTPUT folder
 @set TIDYOUT=tmp
 @REM set input test list file
