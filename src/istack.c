@@ -97,14 +97,13 @@ static void PopIStack( TidyDocImpl* doc )
 {
     Lexer* lexer = doc->lexer;
     IStack *istack;
-    AttVal *av;
 
     --(lexer->istacksize);
     istack = &(lexer->istack[lexer->istacksize]);
 
     while (istack->attributes)
     {
-        av = istack->attributes;
+        AttVal * const av = istack->attributes;
         istack->attributes = av->next;
         TY_(FreeAttribute)( doc, av );
     }
@@ -114,10 +113,11 @@ static void PopIStack( TidyDocImpl* doc )
 static void PopIStackUntil( TidyDocImpl* doc, TidyTagId tid )
 {
     Lexer* lexer = doc->lexer;
-    IStack *istack;
 
     while (lexer->istacksize > 0)
     {
+        IStack *istack;
+
         PopIStack( doc );
         istack = &(lexer->istack[lexer->istacksize]);
         if ( istack->tag->id == tid )
@@ -172,7 +172,7 @@ Bool TY_(IsPushed)( TidyDocImpl* doc, Node *node )
 */
 Bool TY_(IsPushedLast)( TidyDocImpl* doc, Node *element, Node *node )
 {
-    Lexer* lexer = doc->lexer;
+    const Lexer* const lexer = doc->lexer;
 
     if ( element && !IsNodePushable(element) )
         return no;
@@ -205,7 +205,7 @@ Bool TY_(IsPushedLast)( TidyDocImpl* doc, Node *element, Node *node )
 */
 int TY_(InlineDup)( TidyDocImpl* doc, Node* node )
 {
-    Lexer* lexer = doc->lexer;
+    Lexer* const lexer = doc->lexer;
     int n;
 
     if ((n = lexer->istacksize - lexer->istackbase) > 0)
