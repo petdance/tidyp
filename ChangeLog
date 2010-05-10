@@ -1,5 +1,11 @@
 Changelog for libtidyp
 
+1.02    Mon May 10 00:57:45 CDT 2010
+====================================
+Updated some build problems.  The "make check" target should now build
+correctly.
+
+
 1.00    Sun Apr 25 00:53:14 CDT 2010
 ====================================
 Removed -Wextra compiler flag for GCC.  Older GCCs don't handle this,
