@@ -1373,7 +1373,7 @@ Bool TY_(AddGenerator)( TidyDocImpl* doc )
                     attval = TY_(AttrGetById)(node, TidyAttr_CONTENT);
 
                     if (AttrHasValue(attval) &&
-                        TY_(tmbstrncasecmp)(attval->value, "HTML Tidy", 9) == 0)
+                        TY_(tmbstrncasecmp)(attval->value, "tidyp ", 6) == 0)
                     {
                         /* update the existing content to reflect the */
                         /* actual version of Tidy currently being used */
