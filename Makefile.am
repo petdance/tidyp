@@ -57,6 +57,8 @@ SUBDIRS = src include bin tests
 
 TESTS = test-thing.sh
 
+EXTRA_DIST = test-thing.sh
+
 
 # For checking with splint see also http://www.perlfoundation.org/parrot/index.cgi?splint
 # Splint: http://splint.org
