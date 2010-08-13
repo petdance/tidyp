@@ -54,7 +54,7 @@ fi
 AC_SUBST(WARNING_CFLAGS)
 
 debug_build=no
-AC_ARG_ENABLE(debug,[  --enable-debug          add -g (instead of -O2) to CFLAGS],[
+AC_ARG_ENABLE(debug,[  --enable-debug          add -g to CFLAGS],[
 	if test "x$enableval" = "xyes"; then
 		debug_build=yes
 	fi
@@ -62,7 +62,7 @@ AC_ARG_ENABLE(debug,[  --enable-debug          add -g (instead of -O2) to CFLAGS
 if test $debug_build = yes; then
 	CFLAGS="$save_cflags -g"
 else
-	CFLAGS="-O2 $save_cflags"
+	CFLAGS="$save_cflags"
 fi
 #
 # =============================================
