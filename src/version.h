@@ -5,4 +5,4 @@
 
 */
 
-static const char TY_(version)[] = "1.00";
+static const char TY_(version)[] = "1.04";

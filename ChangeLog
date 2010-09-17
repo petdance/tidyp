@@ -1,5 +1,13 @@
 Changelog for libtidyp
 
+1.04    Thu Sep 16 23:15:43 CDT 2010
+====================================
+Updated compiler flags.
+
+Releasing mostly to get a fresh version out there for HTML::Tidy to
+work with.
+
+
 1.00    Sun Apr 25 00:53:14 CDT 2010
 ====================================
 Removed -Wextra compiler flag for GCC.  Older GCCs don't handle this,

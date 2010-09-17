@@ -1,6 +1,6 @@
 # configure.ac - tidyp GNU autoconf input file
 
-AC_INIT([tidyp],[1.00],[andy@petdance.com])
+AC_INIT([tidyp],[1.04],[andy@petdance.com])
 
 AC_CONFIG_SRCDIR([src/tidyplib.c])
 
@@ -15,7 +15,7 @@ AC_CONFIG_SRCDIR([src/tidyplib.c])
 # set TIDY_BINARY_AGE and TIDY_INTERFACE_AGE to 0.
 #
 TIDY_MAJOR_VERSION=1
-TIDY_MINOR_VERSION=00
+TIDY_MINOR_VERSION=04
 TIDY_MICRO_VERSION=0
 TIDY_INTERFACE_AGE=0
 TIDY_BINARY_AGE=0
