@@ -2,6 +2,6 @@ Install as any standard package:
 
     $ ./configure
 
-    $ ./make
+    $ make
 
-    $ sudo ./make install
+    $ sudo make install

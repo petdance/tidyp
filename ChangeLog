@@ -1,4 +1,10 @@
-Changelog for libtidyp
+Changelog for tidyp
+
+NEXT
+====================================
+[FIXES]
+Fixed some typos in the INSTALL file.  Thanks, John Gabriele.
+
 
 1.04    Thu Sep 16 23:15:43 CDT 2010
 ====================================
@@ -37,5 +43,5 @@ The function tidyVersion() has been added.
 
 The function tidyReleaseDate() has been removed.
 
-# vi: ft=text:
+# vi: ft=text
 # It's called ChangeLog, but I don't follow the GNU format.
