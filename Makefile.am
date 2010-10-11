@@ -186,3 +186,5 @@ tags :
 		-I NOTNULL,NULLOK,ARGIN,ARGMOD,ARGOUT,ARGINOUT,ARGIN_NULLOK,ARGOUT_NULLOK,ARGMOD_NULLOK \
 		$(CUR_DIR)
 
+rsync :
+	scp site/index.html andy@huggy.petdance.com:/srv/tidyp
