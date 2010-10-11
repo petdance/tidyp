@@ -5,3 +5,7 @@ Install as any standard package:
     $ make
 
     $ sudo make install
+
+If you do NOT have a ./configure program, then you are working from
+the source repository, not the tarball.  Please get a release tarball
+from http://github.com/petdance/tidyp/downloads.
